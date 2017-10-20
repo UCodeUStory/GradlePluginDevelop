@@ -3,6 +3,42 @@
 
     <item
         is-multidex="false"
+        jar="/Users/qiyue/GitProject/GradlePlugin/app/build/intermediates/transforms/MyTrans/debug/jars/1/10/66a1a6f708c4caed404c0092ef16c46190ca13e54b2978d8e7df8ed8aa88174971d0be92.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="18d31838aa4fcc768a8a0516e22cc13b94655d89">
+        <dex dex="/Users/qiyue/GitProject/GradlePlugin/app/build/intermediates/pre-dexed/debug/66a1a6f708c4caed404c0092ef16c46190ca13e54b2978d8e7df8ed8aa88174971d0be92_79534cb3a430d0e7a54cc1b0e29173bed2b771a1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/qiyue/GitProject/GradlePlugin/app/build/intermediates/transforms/MyTrans/debug/jars/1/10/706a5c9a71b8d2cdb1b28a5d6e6c36a90eb318a6faec9085bd6adf1ee15c5a76ee430ef6.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="fcd01fd11233459f546c437ec927e9b61bf7caf1">
+        <dex dex="/Users/qiyue/GitProject/GradlePlugin/app/build/intermediates/pre-dexed/debug/706a5c9a71b8d2cdb1b28a5d6e6c36a90eb318a6faec9085bd6adf1ee15c5a76ee430ef6_17155e3acb8bc1744fae024deec50396d8855957.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/qiyue/GitProject/GradlePlugin/app/build/intermediates/transforms/MyTrans/debug/jars/1/10/be3a1d3aab4bdb7fe72179dd8be7e3266595e8590c139bf2673957d36eb216ae98f8eb7d.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/qiyue/GitProject/GradlePlugin/app/build/intermediates/pre-dexed/debug/be3a1d3aab4bdb7fe72179dd8be7e3266595e8590c139bf2673957d36eb216ae98f8eb7d_3de1fc5e3ffa67d82730e1e86f360b7a5dc52348.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/qiyue/GitProject/GradlePlugin/app/build/intermediates/transforms/MyTrans/debug/jars/1/10/08786497acecd245a1d0e03134481e183eb11f707c7f524f4903a3eb24ffdb197583734d.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="8df0e365e40beb151bc42dee20817721a6cab7b0">
+        <dex dex="/Users/qiyue/GitProject/GradlePlugin/app/build/intermediates/pre-dexed/debug/08786497acecd245a1d0e03134481e183eb11f707c7f524f4903a3eb24ffdb197583734d_4585feca75c84c9075b6ae60e606a906d8ca97e8.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/qiyue/GitProject/GradlePlugin/app/build/intermediates/transforms/MyTrans/debug/jars/1/10/7bcf5db6579cd4ec03f7d43e399443724426fc89cd2509eec52d785c95626deac6bda5bb.jar"
         jumboMode="false"
         optimize="true"
@@ -30,24 +66,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="/Users/qiyue/GitProject/GradlePlugin/app/build/intermediates/transforms/MyTrans/debug/jars/1/10/66a1a6f708c4caed404c0092ef16c46190ca13e54b2978d8e7df8ed8aa88174971d0be92.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="18d31838aa4fcc768a8a0516e22cc13b94655d89">
-        <dex dex="/Users/qiyue/GitProject/GradlePlugin/app/build/intermediates/pre-dexed/debug/66a1a6f708c4caed404c0092ef16c46190ca13e54b2978d8e7df8ed8aa88174971d0be92_79534cb3a430d0e7a54cc1b0e29173bed2b771a1.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/qiyue/GitProject/GradlePlugin/app/build/intermediates/transforms/MyTrans/debug/jars/1/10/706a5c9a71b8d2cdb1b28a5d6e6c36a90eb318a6faec9085bd6adf1ee15c5a76ee430ef6.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="fcd01fd11233459f546c437ec927e9b61bf7caf1">
-        <dex dex="/Users/qiyue/GitProject/GradlePlugin/app/build/intermediates/pre-dexed/debug/706a5c9a71b8d2cdb1b28a5d6e6c36a90eb318a6faec9085bd6adf1ee15c5a76ee430ef6_17155e3acb8bc1744fae024deec50396d8855957.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/Users/qiyue/GitProject/GradlePlugin/app/build/intermediates/transforms/MyTrans/debug/jars/1/10/63843ba97ecb61b0754ca1afed53fb718f75c3c885a6a3c2da71e05c70fa0a423ea5be53.jar"
         jumboMode="false"
         optimize="true"
@@ -72,24 +90,6 @@
         revision="26.0.1"
         sha1="9935891f23923f39d002087085d9696568a9f657">
         <dex dex="/Users/qiyue/GitProject/GradlePlugin/app/build/intermediates/pre-dexed/debug/a8d4a181f3556077fe8927ff50c36352d393dbbbde8265b9ba04da6a0f8d3adff19d6983_c044770d003708ec9c7a99baa520c55bc0724e82.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/qiyue/GitProject/GradlePlugin/app/build/intermediates/transforms/MyTrans/debug/jars/1/10/be3a1d3aab4bdb7fe72179dd8be7e3266595e8590c139bf2673957d36eb216ae98f8eb7d.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/Users/qiyue/GitProject/GradlePlugin/app/build/intermediates/pre-dexed/debug/be3a1d3aab4bdb7fe72179dd8be7e3266595e8590c139bf2673957d36eb216ae98f8eb7d_3de1fc5e3ffa67d82730e1e86f360b7a5dc52348.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/qiyue/GitProject/GradlePlugin/app/build/intermediates/transforms/MyTrans/debug/jars/1/10/08786497acecd245a1d0e03134481e183eb11f707c7f524f4903a3eb24ffdb197583734d.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="8df0e365e40beb151bc42dee20817721a6cab7b0">
-        <dex dex="/Users/qiyue/GitProject/GradlePlugin/app/build/intermediates/pre-dexed/debug/08786497acecd245a1d0e03134481e183eb11f707c7f524f4903a3eb24ffdb197583734d_4585feca75c84c9075b6ae60e606a906d8ca97e8.jar" />
     </item>
 
 </items>

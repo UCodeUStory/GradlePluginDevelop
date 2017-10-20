@@ -14,7 +14,10 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+        }
+        debug{
+
         }
     }
 
@@ -33,7 +36,7 @@ buildscript {
     dependencies {
         classpath group: 'com.micky',
                 name: 'mygradleplugin',
-                version: '1.0.0'
+                version: '1.0.1'
     }
 }
 

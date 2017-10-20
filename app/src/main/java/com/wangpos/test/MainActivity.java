@@ -12,8 +12,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Log.i("qiyue","--------start---------");
-        new Test();
+
+
+
         Log.i("qiyue","---------end--------");
+
+
 //        /Users/qiyue/GitProject/GradlePlugin/app/build/intermediates/classes/debug
     }
+
+
 }

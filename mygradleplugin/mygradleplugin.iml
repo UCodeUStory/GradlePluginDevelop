@@ -90,6 +90,6 @@
     <orderEntry type="library" exported="" name="gradle-api-2.14.1" level="project" />
     <orderEntry type="library" exported="" name="groovy-all-2.4.4" level="project" />
     <orderEntry type="library" exported="" name="gradle-installation-beacon-2.14.1" level="project" />
-    <orderEntry type="library" exported="" name="mygradleplugin.mygradleplugin-1.0.0" level="project" />
+    <orderEntry type="library" exported="" name="mygradleplugin.mygradleplugin-1.0.1" level="project" />
   </component>
 </module>
