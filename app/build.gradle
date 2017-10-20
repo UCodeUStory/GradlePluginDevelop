@@ -27,6 +27,7 @@ buildscript {
         maven {
             url uri('../repo')
         }
+        jcenter()
     }
 
     dependencies {
@@ -38,11 +39,15 @@ buildscript {
 
 apply plugin: 'com.micky.mycustom'
 
+apply plugin: 'com.micky.myTransform'
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
+
+
     testCompile 'junit:junit:4.12'
 }

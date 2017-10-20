@@ -1,5 +1,6 @@
-package com.micky.gradle;
+package com.micky.gradle
 
+import com.android.build.gradle.*;
 import org.gradle.api.*;
 
 /**
@@ -8,9 +9,14 @@ import org.gradle.api.*;
  * build 过程 apply代码会执行，这段代码里面又定义了一个任务，任务可以通过 终端命令 gradle 任务名执行，例如 gradle myTask
  *
  */
+
 class MyCustomPlugin implements Plugin<Project> {
     void apply(Project project) {
         System.out.println("这是自定义插件");
+
+//        def android = project.extensions.findByType(AppExtension)
+//        android.registerTransform(new MyTransform(project))
+
         project.task('myTask') << {
             println "Hi this is micky's plugin"
         }
