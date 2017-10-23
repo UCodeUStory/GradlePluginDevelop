@@ -22,4 +22,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    private void initView(){
+
+    }
+
+    private void initData(){
+
+    }
+
+
+
 }
