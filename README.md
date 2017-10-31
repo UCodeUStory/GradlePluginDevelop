@@ -144,7 +144,11 @@ Mytransform 重写transform方法
 
 里面都是groovy代码，也可以使用java代码，看哪个方便吧
 
-## 过程遇到的问题就是找不到依赖库，需要在repositories种添加jcenter() ,还有javassist找不到jar包，就是需要javassist引入jar包
+## 问题总结
+  1.找不到依赖库，需要在repositories种添加jcenter() 
+  2.还有javassist找不到jar包，就是需要javassist引入jar包
+  3.发现生成的apk没有变化，删除了build目录重新build，仍然无变化，点击Android Studio setting 清理缓存，重新启动
 
-
-# 待添加 Gradle介绍
+## Gradle详细介绍
+   1.
+   2.
