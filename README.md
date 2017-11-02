@@ -148,3 +148,88 @@ Mytransform 重写transform方法
 
 
 # 待添加 Gradle介绍
+
+   1.删除无用资源  shrinkResources true 一般在release里配置
+
+   2.zipalign优化  zipAlignEnabled true zipalign优化的最根本目的是帮助操作系统更高效率的根据请求索引资源 一般在release里配置
+
+   3.混淆  minifyEnabled false
+
+   4.pseudoLocalesEnabled true //
+   如果没有提供混淆规则文件，则设置默认的混淆规则文件 （SDK/tools/proguard/proguard-android.txt）
+
+   5.proguardFiles getDefaultProguardFile('proguard-Android.txt'), 'proguard-rules.pro'
+
+   6.配置签名 signingConfig  signingConfigs.debug
+
+   7.配置多渠道打包productFlavors
+
+        1）为什么要多渠道打包？
+
+        安卓应用商店（一个商店也叫做一个渠道，如360，baidu，xiaomi）众多，大大小小几百个，我们发布应用之后需要统计各个渠道的用户下载量，所以才有了多渠道打包。
+        现在有比较成熟的第三方应用帮我们实现统计功能（比如友盟），统计的本质就是收集用户信息传输到后台，后台生成报表，帮助我们跟踪分析并完善app。通过系统的方法已经可以获取到，
+        版本号，版本名称，系统版本，机型，地区等各种信息，唯独应用商店（渠道）的信息我们是没有办法从系统获取到的，所以我们就人为的在apk里面添加渠道信息（其实就用一个字段进行标识，如360，baidu），
+        我们只要把这些信息打包到apk文件并将信息传输到后台，后台根据这个标识，可以统计各个渠道的下载量了，并没有多么的高大上。
+
+        说了那么多，其实多渠道打包只需要关注两件事情：
+
+
+        将渠道信息写入apk文件
+
+        将apk中的渠道信息传输到统计后台
+
+
+        添加配置,以友盟的方式，传到友盟来统计，他需要UMENG_CHANNEL_VALUE来区分
+
+
+        android {
+            productFlavors {
+                xiaomi {
+                    manifestPlaceholders = [UMENG_CHANNEL_VALUE: "xiaomi"]
+                }
+                _360 {
+                    manifestPlaceholders = [UMENG_CHANNEL_VALUE: "_360"]
+                }
+                baidu {
+                    manifestPlaceholders = [UMENG_CHANNEL_VALUE: "baidu"]
+                }
+                wandoujia {
+                    manifestPlaceholders = [UMENG_CHANNEL_VALUE: "wandoujia"]
+                }
+            }
+        }
+
+        然后在Android左下角可以通过Build Variants选择构建不同渠道应用
+
+    8.添加不同buildType，默认我们只有debug 和Realse
+
+    9.每种渠道都对应这些buildType 在选择buildVarient时候会全部显示出来
+
+    10.通过不同的打包渠道，我们还可以将框架层抽离，比如我们的开发两个app图标和应用名字不一样，应用也不一样，可以通过这种，来实现多个apk
+
+    oea {
+            applicationId "com.janus.oea.advancedgradledemo"
+            applicationIdSuffix ".plus"
+            //这样最终的包名是 com.janus.oea.advancedgradledemo.plus
+            versionCode 1
+            versionName "1.0.0"
+            manifestPlaceholders = [APP_NAME: "APP_OEA"]
+            buildConfigField 'String', 'OEM', '"OEA"'
+        }
+    oeb {
+            applicationId "com.janus.oeb.advancedgradledemo"
+            versionCode 2
+            versionName "1.2.0"
+            manifestPlaceholders = [APP_NAME: "APP_OEB"]
+            buildConfigField 'String', 'OEM', '"OEB"'
+        }
+
+    依赖一下
+
+    oeaCompile project(':oea')
+    oebCompile project(':oeb')
+
+
+
+
+
