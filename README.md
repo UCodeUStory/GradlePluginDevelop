@@ -150,7 +150,7 @@ Mytransform 重写transform方法
  2.还有javassist找不到jar包，就是需要javassist引入jar包
  3.发现生成的apk没有变化，删除了build目录重新build，仍然无变化，点击Android Studio setting 清理缓存，重新启动
 
-# 待添加 Gradle介绍
+# Gradle介绍
 
    1.删除无用资源  shrinkResources true 一般在release里配置
 
