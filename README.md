@@ -232,7 +232,15 @@ Mytransform 重写transform方法
     oeaCompile project(':oea')
     oebCompile project(':oeb')
 
+11.gradle动态注入属性
 
+通过${name}，使得你可以在你的Manifest插入一个占位符。看下面的例子:
 
+<activity android:name=".Main">
+    <intent-filter>
+        <action android:name="${applicationId}.foo">
+        </action>
+    </intent-filter>
+</activity>
 
 
