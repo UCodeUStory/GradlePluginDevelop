@@ -9,30 +9,30 @@
   - 将此Module的java修改改成groovy
   - 包名自己可以修改
   - 此Moudle下build.gradle内容清空，添加如下代码
-  
-  
+
+
     apply plugin: 'groovy'
 
     apply plugin: 'maven'
-    
+
     dependencies {
 
         compile gradleApi()
         compile localGroovy()
     }
-    
+
     repositories {
-    
+
         mavenCentral()
     }
-    
+
     //group和version在后面使用自定义插件的时候会用到 可以随便起
     group='com.micky'
-    
+
     version='1.0.0'
     //上传本地仓库的task，
     uploadArchives {
-    
+
         repositories {
             mavenDeployer {
             //本地仓库的地址，自己随意选，但使用的时候要保持一致，这里就是当前项目目录
@@ -42,15 +42,15 @@
     }
 -
     在groovy路径下创建一个MyPlugin.groovy,新建文件一定要带后缀名
-    
-    
+
+
     package  com.hc.plugin
 
     import org.gradle.api.Plugin
     import org.gradle.api.Project
-    
+
     public class MyPlugin implements Plugin<Project> {
-    
+
         void apply(Project project) {
             System.out.println("========================");
             System.out.println("hello gradle plugin!");
@@ -64,10 +64,10 @@
 - 然后在com.hc.gradle.properties文件里面指明你自定义的类
 
   implementation-class=com.hc.plugin.MyPlugin
-  
+
 - 执行 gradle uploadArchives 上传到本地仓库会生成jar
 - 然后在项目的app目录下的build.gradle 使用插件
-- 
+-
 buildscript {
 
     repositories {
@@ -87,14 +87,14 @@ buildscript {
 apply plugin: 'com.hc.gradle'
 
 - 最后 先clean project(很重要！),然后再make project.从messages窗口打印如下信息
-- 
+-
 
 
-# 新增Gradle Transform 
+# 新增Gradle Transform
 监听文件编译结束，通过
 javasist实现字节码修改,实现代码插入,通过这种插件化的AOP 和代码中使用Aspectj 区别就是，避免代码碎片化，添加一个功能修改多处代码，即使用了Aspectj 也许要在修改的地方添加注解，当修改处很多的时候很不方便，通过transform和javassist 可以遍历整个工程，按照满足条件的一次性修改，并且以后我们可以写成通用性的组建，比如自动注册一些组建在所有Activity，里面Javassist用了反射原理，但是这是编译器，不损失效率,Javassist非常强大，需要仔细学习
 
-1.新建一个MyTransform 再新建一个插件MyPlugin注册这个Transform 
+1.新建一个MyTransform 再新建一个插件MyPlugin注册这个Transform
 
 Mytransform 重写transform方法
 里面要将输入内容复制给输出，否者报错，这是第一步，其实就是相当于在运行我们给拦截了，必须再把内容输出出去才能打包成dex
@@ -152,20 +152,20 @@ Mytransform 重写transform方法
 
 # Gradle介绍
 
-   1.删除无用资源  shrinkResources true 一般在release里配置
+-    1.删除无用资源  shrinkResources true 一般在release里配置
 
-   2.zipalign优化  zipAlignEnabled true zipalign优化的最根本目的是帮助操作系统更高效率的根据请求索引资源 一般在release里配置
+-    2.zipalign优化  zipAlignEnabled true zipalign优化的最根本目的是帮助操作系统更高效率的根据请求索引资源 一般在release里配置
+-
+-    3.混淆  minifyEnabled false
 
-   3.混淆  minifyEnabled false
+-    4.pseudoLocalesEnabled true //
+-    如果没有提供混淆规则文件，则设置默认的混淆规则文件 （SDK/tools/proguard/proguard-android.txt）
 
-   4.pseudoLocalesEnabled true //
-   如果没有提供混淆规则文件，则设置默认的混淆规则文件 （SDK/tools/proguard/proguard-android.txt）
+-    5.proguardFiles getDefaultProguardFile('proguard-Android.txt'), 'proguard-rules.pro'
 
-   5.proguardFiles getDefaultProguardFile('proguard-Android.txt'), 'proguard-rules.pro'
+-    6.配置签名 signingConfig  signingConfigs.debug
 
-   6.配置签名 signingConfig  signingConfigs.debug
-
-   7.配置多渠道打包productFlavors
+-    7.配置多渠道打包productFlavors
 
         1）为什么要多渠道打包？
 
@@ -204,43 +204,90 @@ Mytransform 重写transform方法
 
         然后在Android左下角可以通过Build Variants选择构建不同渠道应用
 
-    8.添加不同buildType，默认我们只有debug 和Realse
+- 8.添加不同buildType，默认我们只有debug 和Realse
 
-    9.每种渠道都对应这些buildType 在选择buildVarient时候会全部显示出来
+- 9.每种渠道都对应这些buildType 在选择buildVarient时候会全部显示出来
 
-    10.通过不同的打包渠道，我们还可以将框架层抽离，比如我们的开发两个app图标和应用名字不一样，应用也不一样，可以通过这种，来实现多个apk
+- 10.通过不同的打包渠道，我们还可以将框架层抽离，比如我们的开发两个app图标和应用名字不一样，应用也不一样，可以通过这种，来实现多个apk
 
-    oea {
-            applicationId "com.janus.oea.advancedgradledemo"
-            applicationIdSuffix ".plus"
-            //这样最终的包名是 com.janus.oea.advancedgradledemo.plus
-            versionCode 1
-            versionName "1.0.0"
-            manifestPlaceholders = [APP_NAME: "APP_OEA"]
-            buildConfigField 'String', 'OEM', '"OEA"'
-        }
-    oeb {
-            applicationId "com.janus.oeb.advancedgradledemo"
-            versionCode 2
-            versionName "1.2.0"
-            manifestPlaceholders = [APP_NAME: "APP_OEB"]
-            buildConfigField 'String', 'OEM', '"OEB"'
-        }
+        oea {
+                applicationId "com.janus.oea.advancedgradledemo"
+                applicationIdSuffix ".plus"
+                //这样最终的包名是 com.janus.oea.advancedgradledemo.plus
+                versionCode 1
+                versionName "1.0.0"
+                manifestPlaceholders = [APP_NAME: "APP_OEA"]
+                buildConfigField 'String', 'OEM', '"OEA"'
+            }
+        oeb {
+                applicationId "com.janus.oeb.advancedgradledemo"
+                versionCode 2
+                versionName "1.2.0"
+                manifestPlaceholders = [APP_NAME: "APP_OEB"]
+                buildConfigField 'String', 'OEM', '"OEB"'
+            }
 
     依赖一下
 
     oeaCompile project(':oea')
     oebCompile project(':oeb')
 
-11.gradle动态注入属性
+- 11.gradle动态注入属性
 
 通过${name}，使得你可以在你的Manifest插入一个占位符。看下面的例子:
 
-<activity android:name=".Main">
-    <intent-filter>
-        <action android:name="${applicationId}.foo">
-        </action>
-    </intent-filter>
-</activity>
+    <activity android:name=".Main">
+        <intent-filter>
+            <action android:name="${applicationId}.foo">
+            </action>
+        </intent-filter>
+    </activity>
+
+    通过上面的代码，${applicationId}会被替换成真实的applicationId,例如对于branchOne这个variant,它会变成：
+
+    <action android:name="com.example.branchOne.foo">
+
+
+这是非常有用的，因为我们要根据variant用不同的applicationId填充Manifest.
+
+
+如果你想创建自己的占位符，你可以在manifestPlaceholders定义，语法是：
+
+    productFlavors {
+        branchOne {
+            manifestPlaceholders = [branchCustoName :"defaultName"]
+        }
+        branchTwo {
+            manifestPlaceholders = [branchCustoName :"otherName"]
+        }
+    }
+
+
+
+12.如果你想做更复杂的事情，你可以applicationVariants.all这个task中添加代码进行执行。
+
+
+假设，我想设置一个applicationId给branchTwo和distrib结合的variant,我可以在build.gradle里面这样写：
+
+    applicationVariants.all { variant ->
+        def mergedFlavor = variant.mergedFlavor
+        switch (variant.flavorName) {
+            case "brancheTwoDistrib":
+                mergedFlavor.setApplicationId("com.example.oldNameBranchTwo")
+                break
+        }
+    }
+有时某些buildTypes-flavor结合没有意义，我们想告诉Gradle不要生成这些variants，只需要用variant filter就可以做到
+
+    variantFilter { variant ->
+        if (variant.buildType.name.equals('release')) {
+            variant.setIgnore(!variant.getFlavors().get(1).name.equals('distrib'));
+        }
+        if (variant.buildType.name.equals('debug')) {
+            variant.setIgnore(variant.getFlavors().get(1).name.equals('distrib'));
+        }
+    }
+
+在上面的代码中，我们告诉Gradle buildType=debug不要和flavor=distrib结合而buildType=release只和flavor=distrib结合，生成的Variants
 
 
