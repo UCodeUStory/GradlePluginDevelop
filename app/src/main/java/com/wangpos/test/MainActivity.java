@@ -6,6 +6,8 @@ import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Presenter presenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,8 +21,15 @@ public class MainActivity extends AppCompatActivity {
 
 
 //        /Users/qiyue/GitProject/GradlePlugin/app/build/intermediates/classes/debug
+
+        presenter = new Presenter();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        presenter.onResume();
+    }
 
     private void initView(){
 

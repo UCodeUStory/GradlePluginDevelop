@@ -63,6 +63,7 @@ public class MyTransform extends Transform {
 
                 println("transform transformsalkfjdl;kajf#####################*********")
                 println(directoryInput.file.absolutePath)
+                MyInject2.injectDir(directoryInput.file.absolutePath,"com\\wangpos\\test",project)
                 MyInject.injectDir(directoryInput.file.absolutePath,"com\\wangpos\\test",project)
 
                 // 获取output目录
