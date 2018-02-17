@@ -264,7 +264,7 @@ Mytransform 重写transform方法
 
 
 
-12.如果你想做更复杂的事情，你可以applicationVariants.all这个task中添加代码进行执行。
+- 12.如果你想做更复杂的事情，你可以applicationVariants.all这个task中添加代码进行执行。
 
 
 假设，我想设置一个applicationId给branchTwo和distrib结合的variant,我可以在build.gradle里面这样写：
