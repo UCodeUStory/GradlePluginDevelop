@@ -8,6 +8,7 @@
 - 4. 此Moudle下build.gradle内容清空，添加如下代码
 
 
+
         apply plugin: 'groovy'
         apply plugin: 'maven'
     
@@ -33,6 +34,7 @@
                 }
             }
         }
+        
     
 - 5. 在groovy路径下创建一个MyCustomPlugin.groovy,新建文件一定要带后缀名
  
