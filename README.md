@@ -57,29 +57,34 @@
             System.out.println("========================");
         }
     }
-- (6) 现在，我们已经定义好了自己的gradle插件类，接下来就是告诉gradle，哪一个是我们自定义的插件类，因此，需要在main目录下新建resources目录，然后在resources目录里面再新建META-INF目录，再在META-INF里面新建gradle-plugins目录。最后在gradle-plugins目录里面新建properties文件，注意这个文件的命名，你可以随意取名，但是后面使用这个插件的时候，会用到这个名字。比如，你取名为com.hc.gradle.properties，而在其他build.gradle文件中使用自定义的插件时候则需写成：
+- (6) 现在，我们已经定义好了自己的gradle插件类，接下来就是告诉gradle，哪一个是我们自定义的插件类，因此，需要在main目录下新建resources目录，然后在resources目录里面再新建META-INF目录，再在META-INF里面新建gradle-plugins目录。最后在gradle-plugins目录里面新建properties文件，注意这个文件的命名，你可以随意取名，但是后面使用这个插件的时候，会用到这个名字。比如，你取名为com.hc.gradle.properties，而在其他build.gradle文件中使用自定义的插件时候则需写成：apply plugin: 'com.hc.gradle'
 
-   apply plugin: 'com.hc.gradle'
+- 执行 gradle uploadArchives 上传到本地仓库会生成jar
+
 
 - 然后在com.hc.gradle.properties文件里面指明你自定义的类
 
   implementation-class=com.hc.plugin.MyPlugin
 
-- 执行 gradle uploadArchives 上传到本地仓库会生成jar
 - 然后在项目的app目录下的build.gradle 使用插件
 -
-buildscript {
+
+ buildscript {
 
     repositories {
         maven {//本地Maven仓库地址
-            url uri('D:/repos')
+            url uri('../repo')
         }
     }
     dependencies {
         //格式为-->group:module:version
         classpath 'com.hc.plugin:myplugin:1.0.0'
     }
-}
+ }
+
+import com.hc.plugin.MyPlugin
+
+apply plugin: AspectjPlugin
 
 //com.hc.gradle为resources/META-INF/gradle-plugins
 //下的properties文件名称
