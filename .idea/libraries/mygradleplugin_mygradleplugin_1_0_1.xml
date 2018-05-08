@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="mygradleplugin.mygradleplugin-1.0.1">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/mygradleplugin/build/libs/mygradleplugin-1.0.1.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
