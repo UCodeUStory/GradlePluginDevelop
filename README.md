@@ -8,35 +8,31 @@
 - 4. 此Moudle下build.gradle内容清空，添加如下代码
 
 
-    apply plugin: 'groovy'
-
-    apply plugin: 'maven'
-
-    dependencies {
-
-        compile gradleApi()
-        compile localGroovy()
-    }
-
-    repositories {
-
-        mavenCentral()
-    }
-
-    //group和version在后面使用自定义插件的时候会用到 可以随便起
-    group='com.micky'
-    version='1.0.0'
+        apply plugin: 'groovy'
+        apply plugin: 'maven'
     
+        dependencies {
+            compile gradleApi()
+            compile localGroovy()
+        }
     
-    //上传本地仓库的task，
-    uploadArchives {
         repositories {
-            mavenDeployer {
-            //本地仓库的地址，自己随意选，但使用的时候要保持一致，这里就是当前项目目录
-                repository(url: uri('../repo'))
+            mavenCentral()
+        }
+    
+        // group和version在后面使用自定义插件的时候会用到 可以随便起
+        group='com.micky'
+        version='1.0.0'
+        
+        // 上传本地仓库的task，
+        uploadArchives {
+            repositories {
+                mavenDeployer {
+                //本地仓库的地址，自己随意选，但使用的时候要保持一致，这里就是当前项目目录
+                    repository(url: uri('../repo'))
+                }
             }
         }
-    }
     
 - 5. 在groovy路径下创建一个MyCustomPlugin.groovy,新建文件一定要带后缀名
  
