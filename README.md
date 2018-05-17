@@ -1,5 +1,10 @@
 ## Gradle插件开发介绍
 
+
+####  Gradle详解：
+
+    这一次一定要系统掌握，你准备好了吗？
+    
 使用Android Studio开发Gradle插件
 
 - 1. 创建一个Android Library类型的Moudle；例如mygradleplugin
