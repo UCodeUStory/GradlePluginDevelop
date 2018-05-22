@@ -1,0 +1,8 @@
+
+//Android 项目通过 settings.gradle 完成模块配置
+
+//在Gradle众多工程是通过工程树表示的，相当于我们在Android Studio看到的Project和Module概念一样。
+// 根工程相当于Android Studio的Project，一个根工程可以有很多子工程，也就是很多Module
+
+//include ':app', ':mygradleplugin', ':mylibrary'
+
