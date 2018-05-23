@@ -1,0 +1,53 @@
+android{
+
+
+    sourceSets {
+        main {
+            java {
+                srcDir 'src/java' // 指定源码目录
+            }
+            resources {
+                srcDir 'src/resources' //资源目录
+            }
+        }
+    }
+// Eclipse 项目转换 AndroidStudio项目
+//    sourceSets {
+//        main {
+//            manifest.srcFile 'AndroidManifest.xml'
+//            java.srcDirs = ['src']
+//            aidl.srcDirs = ['src']
+//            renderscript.srcDirs = ['src']
+//            res.srcDirs = ['res']
+//            assets.srcDirs = ['assets']
+//        }
+//
+//        instrumentTest.setRoot('tests')
+//    }
+}
+
+//1.我们可以在sourceSets中配置指定的Manifest文件(例如在组件化开发中, 我们需要针对debug与release模式下, 指定不同的Manifest文件)
+//
+//sourceSets {
+//    main {
+//        if (isDebug.toBoolean()) {
+//            manifest.srcFile 'src/main/debug/AndroidManifest.xml'
+//        } else {
+//            manifest.srcFile 'src/main/release/AndroidManifest.xml'
+//        }
+//    }
+//}
+
+//.如果我想在打包的时候, 不包含某些文件, 可以如下进行设置
+//
+//sourceSets {
+//    main {
+//        java {
+//            exclude '/test/**'  // 不想包含文件的路径
+//        }
+//        resources {
+//            exclude '/resource/**' // 不想包含的资源文件路径
+//        }
+//        .....
+//    }
+//}

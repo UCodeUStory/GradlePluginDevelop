@@ -1,0 +1,18 @@
+
+android {
+
+
+    //在gradle.properties中定义版本号 ,gradle.properties在提交SVN和git 解决每个人使用构建版本不同问题
+    buildToolsVersion localBuildToolsVersion
+
+
+}
+
+/*
+
+   在项目根目录配置localGradlePluginVersion属性 解决不同开发人员使用不同gradle问题
+   dependencies {
+        classpath 'com.android.tools.build:gradle:'+localGradlePluginVersion
+    }
+
+ */

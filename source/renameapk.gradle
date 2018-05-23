@@ -1,0 +1,7 @@
+android{
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            outputFileName = getProductName() + "_v${defaultConfig.versionName}_${releaseTime()}" + '_release.apk'
+        }
+    }
+}

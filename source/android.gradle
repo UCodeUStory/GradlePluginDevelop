@@ -1,11 +1,11 @@
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion localBuildToolsVersion
     defaultConfig {
         applicationId "com.wangpos.test"
-        minSdkVersion 15
-        targetSdkVersion 26
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 2
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -60,6 +60,10 @@ android {
         javaMaxHeapSize "4g"
     }
 
+
+    testOptions {
+        resultsDir = "${project.buildDir}/foo/results"
+    }
 }
 /*
 *  compileSdkVersion 26  //告诉 Gradle 用哪个 Android SDK 版本编译你的应用,当你修改了 compileSdkVersion 的时候，
@@ -95,6 +99,9 @@ android {
 
     versionCode 应用版本号
     versionName 应用版本名称
+
+
+    packages 是改变会影响资源文件的应用，R文件生成路径
  */
 
 /*

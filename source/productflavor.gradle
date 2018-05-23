@@ -1,0 +1,38 @@
+android{
+
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.keystore
+            minifyEnabled false
+            manifestPlaceholders = ["app_name":'Gradle详解正式版']
+            buildConfigField "boolean","isDebug","false"
+
+
+        }
+        debug{
+            applicationIdSuffix ".debug"
+            manifestPlaceholders = ["app_name":'Gradle详解测试版']
+            buildConfigField "boolean","isDebug","true"
+        }
+
+        other{
+            applicationIdSuffix ".other"
+            manifestPlaceholders = ["app_name":'Gradle普通版本']
+            buildConfigField "boolean","isDebug","false"
+        }
+    }
+
+    productFlavors{
+        obm{
+            buildConfigField "String","VERSION","\"obm\""
+        }
+        oem{
+            buildConfigField "String","VERSION","\"oem\""
+        }
+        odm{
+            buildConfigField "String","VERSION","\"odm\""
+        }
+
+    }
+}

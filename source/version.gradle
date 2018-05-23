@@ -1,0 +1,17 @@
+
+
+android {
+    // 可以在项目根目录build.gradle配置版本号
+
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion "26.0.1"
+    defaultConfig {
+        applicationId "com.wangpos.test"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName "1.0"
+
+    }
+
+}
