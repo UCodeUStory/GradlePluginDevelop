@@ -6,19 +6,58 @@ android {
         applicationId "com.wangpos.test"
         minSdkVersion 15
         targetSdkVersion 26
-        versionCode 1
+        versionCode 2
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        keystore {
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storeFile file('/Users/qiyue/wangpos/code2/keystore/debug.keystore')
+            storePassword 'android'
+        }
+    }
+
+
     buildTypes {
         release {
+            signingConfig signingConfigs.keystore
             minifyEnabled false
+            manifestPlaceholders = ["app_name":'Gradle详解正式版']
+            buildConfigField "boolean","isDebug","false"
+
 
         }
         debug{
-
+            applicationIdSuffix ".debug"
+            manifestPlaceholders = ["app_name":'Gradle详解测试版']
+            buildConfigField "boolean","isDebug","true"
         }
+
+        other{
+            applicationIdSuffix ".other"
+            manifestPlaceholders = ["app_name":'Gradle普通版本']
+            buildConfigField "boolean","isDebug","false"
+        }
+    }
+
+    productFlavors{
+        obm{
+            buildConfigField "String","VERSION","\"obm\""
+        }
+        oem{
+            buildConfigField "String","VERSION","\"oem\""
+        }
+        odm{
+            buildConfigField "String","VERSION","\"odm\""
+        }
+
+    }
+
+    dexOptions{
+        javaMaxHeapSize "4g"
     }
 
 }
@@ -42,4 +81,97 @@ android {
     所谓的不兼容并不是无法正常运行，而是在不同Android系统的手机运行的效果差异比较大，会让用户感觉难以接受；
     使用低版本API的其中一个不足，显示的效果比较OUT，提供的可用的接口或类比较少，本来一句代码可以完成的功能（封装的类或接口），
     需要自己花一天琢磨写很多的代码，也就是有高版本API的其中一个原因，提供更多的或封装好的应用程序接口让开发者使用。
+ */
+/*
+    defaultConfig 配置默认构建属性
+ */
+/*
+    applicationId 指定应用唯一标识，相同的applicationId不能安装到同一台设备
+
+    adb uninstall 这里是applicationId
+
+    adb uninstall com.wangpos.test
+    adb uninstall com.wangpos.test.debug
+
+    versionCode 应用版本号
+    versionName 应用版本名称
+ */
+
+/*
+ *  BuildType 构建类型
+ *
+ * 默认情况下，Android Plugin 会自动给项目构建 debug 和 release 版本。两个版本的区别在于能否在安全设备
+ * （非 dev）上调试，以及 APK 如何签名。debug 使用通过通用的 name/password 对生成的密钥证书进行签名
+ * （为了防止在构建过程中出现认证请求）。release 在构建过程中不进行签名，需要自行签名。
+ *
+ *  我们在开开发过程可以自己添加很多调试版本，通过Android Studio左下角Build Variants 选择当前的调试版本
+ *
+ *
+ */
+
+/*
+    buildscript 声明是gradle脚本自身需要使用的资源。可以声明的资源包括依赖项、第三方插件、maven仓库地址等
+
+    buildscript和allprojects的作用和区别
+    buildscript中的声明是gradle脚本自身需要使用的资源，就是说他是管家自己需要的资源，跟你这个大少爷其实并没有什么关系。
+    而allprojects声明的却是你所有module所需要使用的资源，就是说如果大少爷你的每个module都需要用同一个第三库的时候，你可以在allprojects里面声明
+ */
+/*
+     productFlavors 多渠道打包, 和BuildScript组合使用，可以构建多总不同的版本
+     如果productFlavors3种产品，buildScript中两种模式，最终会有3 X 2 = 6种版本类型
+ */
+/*
+  repositories
+      顾名思义就是仓库的意思啦，而jcenter()、maven()和google()就是托管第三方插件的平台
+
+  dependencies
+     当然配置了仓库还不够，我们还需要在dependencies{}里面的配置里，把需要配置的依赖用classpath配置上，因为这个dependencies在buildscript{}里面，
+     所以代表的是Gradle需要的插件。
+ */
+/*
+    manifestPlaceholders
+    占位符，我们可以通过它动态配置AndroidManifest文件一些内容，譬如app的名字
+ */
+/*
+OBM：A设计，A生产，A品牌，A销售==工厂自己设计自产自销
+
+ODM：B设计，B生产，A品牌，A销售==俗称“贴牌”，就是工厂的产品，别人的品牌
+
+OEM：A设计，B生产，A品牌，A销售==代工，代生产，别人的技术和品牌，工厂只生产
+ */
+/*
+dexOptions{}
+
+我们知道，Android中的Java源代码被编译成class字节码后，在打包成apk的时候
+被dx命令优化成Android虚拟机可执行的DEX文件。
+
+DEX文件比较紧凑，Android费尽心思做了这个DEX格式，就是为了能使我们的程序在Android中平台上运行快一些。对于这些生成DEX文件的过程和处理，Android Gradle插件都帮我们处理好了，Android Gradle插件会调用SDK中的dx命令进行处理。
+
+但是有的时候可能会遇到提示内存不足的错误，大致提示异常是
+java,lang.OutOfMemoryError: GC overhead limit exceeded,为什么会提示内存不足呢？
+
+ 其实这个dx命令只是一个脚本，它调用的还是Java编写的dx.jar库，是Java程序处理的，所以当内存不足的时候，我们会看到这个Java异常信息.默认情况下给dx分配的内存是一个G8,也就是 1024MB。
+
+所以我们只需要把内存设置大一点，就可以解决这个问题，上图我的项目就把内存设置为4g。
+ */
+
+/*
+dependencies{}
+
+我们平时用的最多的大概就这个了，
+
+1. 首先第一句compile fileTree(include: ['.jar'], dir: 'libs')*，这样配置之后本地libs文件夹下的扩展名为jar的都会被依赖，非常方便。
+
+2. 如果你要引入某个本地module的话，那么需要用compile project('×××')。
+
+3. 如果要引入网上仓库里面的依赖，我们需要这样写compile group：'com.squareup.okhttp3',name:'okhttp',version:'3.0.1',当然这样是最完整的版本，缩写就把group、name、version去掉，然后以":"分割即可。
+compile 'com.squareup.okhttp3:okhttp:3.0.1'
+ */
+
+/*
+    gradle 3.0中依赖implementation、api的区别：
+
+    其实api跟以前的compile没什么区别，将compile全部改成api是不会错的；
+
+    而implementation指令依赖是不会传递的，也就是说当前引用的第三方库仅限于本module内使用，其他module需要重新添加依赖才能用，下面用两个图说明：
  */

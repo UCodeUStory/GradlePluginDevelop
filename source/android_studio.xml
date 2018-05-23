@@ -1,0 +1,757 @@
+
+    gradle build的时候出现的问题：
+    Error:Execution failed for task ':app:packageDebug'. Duplicate files copied in APK META-INF/notice.txt
+
+    解决办法：
+
+    http://stackoverflow.com/questions/22467127/error-duplicate-files-during-packaging-of-apk
+
+
+
+    有时候gradle中途突然死机也会导致module不识别，删除工程的build文件夹重新run即可（！！！）
+
+
+
+    Android studio设置启动时不自动打开上次关闭的项目
+    打开配置页在搜索栏中输入 system 点击System Settings 将红框内的勾选（reopen
+    last project on start up）去掉
+
+
+    ###
+    AndroidStudio怎么关联SVN？
+
+    http://www.it165.net/pro/html/201404/11412.html
+
+    ####
+
+    android studio gradle自动签名构建实现
+    http://www.tuicool.com/articles/MjqYbiu
+
+    安装studio出现的问题，tools.jar有问题。
+
+    http://jingyan.baidu.com/article/fd8044fad120ce5031137a2c.html
+
+
+
+
+
+
+    使用Android Studio打Andorid apk包的流程，andoridapk
+    http://www.bkjia.com/Androidjc/985056.html
+
+    关于Android studio打包发布，以及Android签名的获取
+
+    http://www.bubuko.com/infodetail-918228.html
+
+    Android App的签名打包（晋级篇）
+
+    http://blog.csdn.net/dawanganban/article/details/11794767
+
+
+
+
+
+    Android Studio实现代码混淆
+
+    http://www.bubuko.com/infodetail-987756.html
+
+
+
+    1.Android studio 无法创建Android项目 根本就没有这个选项
+
+    解决办法：  http://zhidao.baidu.com/link?url=aexRXQ822IapdnQ2j3zaqcEgiGKtqrbFYii1Z7FtaqOBK6TqjgivaV4qqDTdf6ooMU71F3y-HKTnbvI2_p2JN3RwC7bIf669w4K5_6fb7bC
+
+
+
+    因为android support没有勾选
+
+
+
+    2.Android studio 工具栏不小心隐藏了
+
+    View然后Toolsbar打勾就好了。
+
+
+
+    Android Studio底边栏选项不见了，***何调出来
+
+    http://blog.csdn.net/hyr83960944/article/details/38067785
+
+
+
+    3.moudle被删除了，怎么恢复？
+
+    解决办法：http://blog.csdn.net/hyr83960944/article/details/37520941
+
+    在project 的setting文件里include ':moudle名'
+
+
+
+    4.怎么导入jar包
+
+    第一步：切换成“project"模式，方能看见libs目录。
+
+    第二步：将jar包拖入libs目录，1.2的as直接复制是不行的。
+
+    第三步：打开工程所在Project Structure,然后选择Dependencies，点击那个加号选择File Dependency ，然后再
+
+    Libs文件夹中选择要导入的jar包。
+
+    两外还有一种方法是在project选中jar包点击右键"Add as library"，这种方法需要定位到项目的根目录，即
+
+    build.gradle所在的目录。
+
+    dependencies
+    {
+    compile files('libs/android-support-v4.jar')
+    compile files('libs/xxxx.jar')
+    }
+
+    2种方法，最终都是在module的build.gradle文件里dependencies结点多了这样一句话compile files('libs/xxxx.jar')
+
+
+
+    5.导入的项目之后，发现很多快捷键、包括ctrl点击跳转都不行了
+
+    路径有中文，我的问题就就是这个。
+
+    可能你会疑问，为什么我之前的项目有中文没有问题，这个我也解释不清楚。
+
+
+
+    6.在AS中打开DDMS窗口
+
+    方式1:工具栏小机器人图标
+
+    方式2:菜单栏Tool-Android-Android Device Manager
+
+    打开后发现,***面和Eclipse里的DDMS差不多
+
+    7.使用adb命令
+
+    在window还是as内部的命令行,都提示***下错误
+
+    adb server is out of date.  killing...
+
+    解决办法: http://visualgdb.com/adbfix/
+
+    未解决问题!
+
+    8.使用Genymotion调试出现错误INSTALL_FAILED_CPU_ABI_INCOMPATIBLE解决办法
+
+    http://blog.csdn.net/wjr2012/article/details/16359113
+
+    未解决问题!
+
+    9.怎么复制全类名
+
+    选中类名,右击   快捷键ctrl+alt+shift+c
+
+    wKiom1YWPSijO5OoAACwwcT4-eM285.jpg
+
+
+
+    10.怎么给Logcat添加过滤器
+
+    wKiom1YWQfey93sRAACSji2Gdwg823.jpg
+
+    wKioL1YWQkTTIknDAADI4P6qnVU987.jpg
+
+
+
+    11.Android Studio 抽取style属性的功能不好使怎么办?
+
+    网上找了很多资源,都不行,灵机一动,可以借助Eclipse来完成.
+
+
+
+    12.Android Studio中***何添加库?
+
+    http://www.oschina.net/question/921036_154257?sort=time
+
+
+
+    向基于Android Studio构建的项目中导入开源库
+
+    http://mobile.51cto.com/aprogram-464018.htm
+
+
+
+    13.Android studio***何导入已有的eclipse工程
+
+    http://my.oschina.net/cheneywangc/blog/192381
+
+    http://www.newasp.net/tech/73673.html
+
+
+
+    在导入已经生成了build.gradle文件的Eclipse项目，可能会出现***下错误：
+
+    could not install gradle distribution from consult ide for
+
+    可能还会提示什么SDK路径找不到的错误，那么可能SDK的环境变量ANDROID_HOME没有配。
+
+
+
+    14.Android Studio系列-签名打包
+
+    http://blog.csdn.net/wwj_748/article/details/44622343
+
+
+
+    生成jks签名文件   http://www.open-open.com/lib/view/open1441896025274.html
+
+    15.怎么修改项目的编码
+
+    wKioL1YfooPhtSGtAAGT4wKxJwQ146.jpg
+
+    16.怎么创建java项目
+
+    wKioL1Yfpgjg8ES8AAEQK0LU4f4691.jpg
+
+    运行main函数   选中有main的类，ctrl _ shift + f10
+
+    wKioL1YfqC7zttwZAAF10Zq245E520.jpg
+
+    注意一点，不要错误的使用菜单上的run方法
+
+    wKioL1YfqIWCsz9UAACqAb_a2qs891.jpg
+
+    结束程序的运行，***果程序里有个死循环的话，比***socket连接会一直占用着端口，要关闭。
+
+    wKiom1YfqLrQYx8NAACG9zidFnY778.jpg
+
+
+
+    17.Android Studio代码自动提示无效（not available in Power Save mode）
+
+    http://blog.csdn.net/hyr83960944/article/details/40024439
+
+    wKiom1Yftn2DKg75AACYU0w2qtU084.jpg
+
+
+
+    18.自动生成构造方法和getter、setter等
+
+    快捷键 alt + insert(PgDn)
+
+    wKiom1Yf2EHS1RyAAAEKfBBC--Q630.jpg
+
+
+
+
+
+    19.在Android Studio中为jar添加source源码
+
+    http://www.bkjia.com/Androidjc/918926.html
+
+    wKiom1YmC3zDZEosAAIud9SYgfc809.jpg
+
+
+
+    20.假***想要看看有没有某个快捷键实现自己的功能
+
+    wKioL1YsvzLhzl87AAHcrOs8Zuo992.jpg
+
+
+
+    21.json串换行展示
+
+    wKioL1Yth6_jGLu3AAFTmnQKWN8446.jpg
+
+
+
+    22.android studio 识别不到 genymotion device
+
+    http://blog.csdn.net/wuyuxing24/article/details/45169991
+
+
+
+    23.【Android Studio快捷键】之导入相应包声明（import packages）
+
+    http://blog.csdn.net/hyr83960944/article/details/38438355
+
+
+
+    24.Android查看类的源码的实现都是抛出异常
+
+
+
+    按照右上角的提示，下载对应sdk-platform的源码即可，不需要翻墙。
+
+
+
+    25.Android Studio使用Lint进行代码检查
+
+    http://www.bubuko.com/infodetail-1055648.html
+
+
+
+    26.Android Studio导入项目的中文注释乱码解决方法
+
+    http://jingyan.baidu.com/article/37bce2be7337af1003f3a241.html
+
+
+
+    27.从自己导入别人的gradle项目出现的问题：
+
+    wKiom1ZxfcOQoH7WAAAi5EhCUx4296.png
+
+
+
+    从svn上down下代码的时候，打开android目录什么也没有，也没有mouble：
+
+    看EventLog提示，gradle一下，还有可能是要升级AS了。
+
+
+
+
+
+    28.Android Studio项目关闭之后重新打开发现Project目录可以显示，但是Android目录什么也没有。
+
+    clean、rebuild,然后还是不行，于是查看一下项目目录，发现在项目同级目录下生成了一个.idea文
+
+    件，删除它重新打开项目就好了。
+
+
+
+    29.Android Studio利用Gradle删除没有使用到的资源文件
+
+    http://www.mamicode.com/info-detail-594355.html
+
+
+
+    30.在.gradle里compile的库突然can't resolve了
+
+    去官方网站，compile最新的链接。
+
+
+
+    31.android studio升级，打开原来的项目，提示： Error:Failed to create directory 'C:\Users\Zhang\.gradle\caches\2.4\scripts\ijinit2_ejtybjqv7774bve37wtrho5a5\InitScript\initscript\classes'
+
+    同步一下工程就好了
+
+
+
+    32.签名步骤：
+
+    wKioL1anQOaSzdz-AACb0F6LDL4749.png
+
+    注意alias不是随便输入的，右击选框进去可以自动生成，当然手动输入正确也行。
+
+    否则会报这个错误：
+
+    Failed to read key from keystore
+
+
+
+    33.怎样查看Android Studio的Gradle版本、Gradle插件的版本。
+
+    http://jingyan.baidu.com/article/cbcede0710f49802f50b4d78.html
+
+    http://www.zhihu.com/question/24648316
+
+
+
+    34.怎么在Android studio清除缓存
+
+    经常会出现关机会自动解决一些bug，应该是缓存的问题。
+
+    http://jingyan.baidu.com/article/7e4409533f4c092fc0e2efde.html
+
+
+
+    35.安装配置gradle
+
+    http://www.th7.cn/Program/Android/201502/388733.shtml
+
+    http://my.oschina.net/u/1471093/blog/341990
+
+
+
+    36.使用Android studio Gradle 实现友盟多渠道打包
+
+    http://bbs.umeng.com/thread-9119-1-1.html
+
+    Gradle 多渠道打包的使用和错误分析
+
+    http://www.daxueit.com/article/7515.html
+
+    Android studio 使用心得(五)—代码混淆和破解apk
+
+    http://www.bubuko.com/infodetail-1008755.html
+
+
+
+
+
+    http://www.jianshu.com/p/ec5178fbd838  （多种多渠道打包的方式）
+
+
+
+    37.Android代码混淆之混淆规则
+
+    http://www.mincoder.com/article/4645.shtml
+
+    http://my.oschina.net/sammy1990/blog/271306
+
+
+
+    38。Android Studio编译OsmAnd出现警告：GeoPointParserUtil.java使用或覆盖了已过时的 API。有关详细信息请使用-Xlint:deprecation重新编译
+
+    http://www.crifan.com/android_studio_build_osmand_warning_use_deprecated_api_for_detail_use_xlint_deprecation_rebuild/
+
+
+
+    38。Android Studio的Project左边栏不显示
+
+    http://blog.csdn.net/hyr83960944/article/details/35986931
+
+
+
+    39.Android问题集锦之三十七：No resource found 'Theme.AppCompat.Light.DarkActionBar'
+
+    http://blog.csdn.net/lincyang/article/details/45394835
+
+    原因是gradle版本不对，将project的gradle由之前的1.5.0修改到1.3.0就好了。
+
+    dependencies {
+    classpath }
+
+
+    40.Android Studio强制关机之后重新打开工程Error一大片
+
+    File-Invalid caches and restart即可解决问题。
+
+
+
+    41.引用新的自定义控件时，提示控件的一个属性已经定义。但是又找不到在哪里定义的，删除吧，又报错，只能修改属性名字了。
+
+
+
+    42.工程的Menifest文件中定义的minSDK比依赖库中的Menifest中的minsdk还要小的问题
+
+    wKiom1b7SLiBE0-IAAA-Oc33O-w103.png  将依赖moudle的改小或者按照提示的来。
+
+
+
+    43.导入工程出现的异常：
+
+    Gradle version 2.10 is required. Current version is 2.8 Error
+
+
+
+    解决办法：
+
+    http://stackoverflow.com/questions/35153112/gradle-version-2-10-is-required-current-version-is-2-8-error
+
+
+
+    44。run项目出现的异常：
+
+    Android Gradle 编译错误Java finished with non-zero exit value 2
+
+    解决办法：
+
+    http://www.jianshu.com/p/4768fe43079a
+
+    http://my.oschina.net/polarw/blog/494046?p={{page}}
+
+
+
+    45.指定source（如jni）等的路径
+
+    http://www.lai18.com/content/2446276.html
+
+
+
+    46.Android Studio中的.9图在build的时候，没有了黑线。
+
+    解决办法：项目的build.gradle版本有问题。修改为高版本即可。
+
+
+
+    46-1.关于.9图的一个错误AAPT。。。
+
+    在gradle里加入
+
+    aaptOptions {
+    cruncherEnabled = false
+    useNewCruncher = false
+    }
+
+
+
+
+
+    47.关于AppCompat的一个异常：
+
+    解决办法：http://www.it1352.com/95268.html
+
+    这个问题的根本原因是style适配的问题，styles，styles-v21，定义了一个子theme，但是styles
+
+    里没有定义。
+
+
+
+    48. java.lang.NoClassDefFoundError:android.support.v7.internal.widget.TintManager
+
+    解决办法：http://stackoverflow.com/questions/34015427/fatal-exception-main-java-lang-noclassdeffounderror-android-support-v7-interna
+
+    TabLayout属于design库里的组件，但是design库与appcompat库不一致，设成一致就好了。
+
+
+
+    49.“URI is not registered”?  Menifest的 DTD Schema约束全部失效了
+
+    解决办法：原来是Menifest里strings资源文件没有从服务上搞下来，其实上面的错误是在build里的，应该到源文件里去看。
+
+
+
+    50. AndroidStudio build的时候那些坑
+
+    http://www.cnblogs.com/bjzhanghao/p/4892195.html
+
+
+
+    51. Error:Gradle version 1.10 is required. Current version is 2.2.1. If using the gradle wrapper, try editing the distributionUrl in /Users/username/apps/android/project-android/gradle/wrapper/gradle-wrapper.properties to gradle-1.10-all.zip.
+
+    问题及解决办法：我的情况的工程的gradle文件夹不小心删除了，去另外工程复制一个过来就行了。
+
+
+
+    52.No resource identifier found for attribute 'backgroundSelector' in package 'com.btsj.hpx'
+
+    老是去build里说不到之前删除的库，到src下去看，发现原来xml虽然没有被引用，但是它还是引用 了之前删除的库。
+
+
+
+    53.Android Studio - Issue in build.gradle uncaught translation error ExecutionException OutOfMemory
+
+    To run dex in process, the Gradle daemon needs a larger heap.
+
+    http://stackoverflow.com/questions/33787030/android-studio-issue-in-build-gradle-uncaught-translation-error-executionexcep
+
+    在android闭包里添加
+
+    dexOptions {
+    javaMaxHeapSize "4g"}
+
+
+    54.java.util.zip.ZipException: duplicate entry
+
+    jar包重复了，仔细检查一下。
+
+
+
+    如果有重复内容的2个jar包都要使用，或者jar包无法判断是哪个jar包，可以采用下面的方法：
+
+    http://blog.csdn.net/u013220174/article/details/48004689
+
+
+
+    5.0以上手机貌似比65535的限制要大。
+
+
+
+
+
+    55.android studio修改包名
+
+    http://www.cnblogs.com/Kyouhui/p/4632813.html
+
+    注意要修改2处地方，一是java类的包名，二是build.gradle里的applicationId。如果applicationId没有变，桌面图标会一直显示复制的那个应用的图标。
+
+
+
+    56.在对一些第3方的jar进行操作之后，某些第3方的jar包竟然编译不了，不管clean rebuild还是关机重启都没有作用
+
+    最后将工作空间复制一分，说找找问题，竟然奇迹一般的好了。
+
+
+
+    57.Android Studio 出现 Gradle's dependency cache may be corrupt 错误分析
+
+    build到一半被打断的时候就容易出现这个问题
+
+    删除掉C盘里的.gradle和.android就可以了
+
+    http://www.cnblogs.com/wanqieddy/p/4350708.html
+
+
+
+    58.修改gradle目录
+
+    http://my.oschina.net/moziqi/blog/373141?p=1
+
+
+
+    59.Android Studio中使应用全屏无标题的方法（老方法好像不能用了）
+
+    http://www.68idc.cn/help/buildlang/ask/20150405310910.html
+
+
+
+    60.由于build.gradle 里的  buildToolsVersion引发的一块风波
+
+
+
+    Error:Execution failed for task ':app:transformClassesWithDexForDebug'.
+
+    > com.android.ide.common.process.ProcessException: org.gradle.process.internal.ExecException: Process 'command 'C:\android\jdk1.7.0_10\bin\java.exe'' finished with non-zero exit value 1
+
+
+
+    To run dex in process, the Gradle daemon needs a larger heap.
+
+    It currently has approximately 910 MB.
+
+    For faster builds, increase the maximum heap size for the Gradle daemon to more than 4096 MB.
+
+    To do this set org.gradle.jvmargs=-Xmx4096M in the project gradle.properties.
+
+
+
+    由于android studio更新了，新建的module的buildToolsVersion太高!
+
+
+
+    61.
+
+    Error:Application and test application id cannot be the same: both are 'com.ljfbest.demo' for debugAndroidTest
+
+    在build.gradle改成不一样
+
+
+
+
+
+    62.
+
+
+
+    Android Studio - Execution failed for task ':app:transformClassesWithDexForDebug' - java.exe finished with non-zero exit value 2
+
+    解决办法：jar包重复，http://zhidao.baidu.com/link?url=QudqUKAvdSByXxCsbbYYGkyORtCo5vacC5DgM2Lk0_4Q1etzUpKvOprvZZJpZvlLY19y9uSQvIM7CXOXjgJWsGCgw08OfDpzipJ0uvB5AB3
+
+
+
+
+
+    63.打开项目中文乱码：
+
+    http://jingyan.baidu.com/article/37bce2be7337af1003f3a241.html
+
+
+
+    64.Error:Configuration with name 'default' not found.
+
+    工程里有多个Module，其中一个Module缺少了build.gradle文件导致的如上报错。
+    65.com.android.builder.packaging.DuplicateFileException: Duplicate files copied in APK META-INF/LICENSE.txt
+
+
+
+    com.android.builder.packaging.DuplicateFileException: Duplicate files copied in APK META-INF/NOTICE.txt
+
+    解决办法：注意NOTICE和LICENCE后面要有后缀名，和错误提示中的一致。
+
+    android{
+
+    ....
+
+
+
+    packagingOptions {
+
+    exclude 'META-INF/NOTICE.txt' // will not include NOTICE file
+
+    exclude 'META-INF/LICENSE.txt' // will not include LICENSE file
+
+    }
+
+    ...
+
+    }
+
+
+
+    66.finished with non-zero exit value 2
+
+    http://www.myexception.cn/android/2010267.html
+
+    我用的android studio打开的eclipse项目，且Eclipse本身是有依赖库的。然后才发现主工程与依赖库的jar包冲突了。
+
+
+
+
+
+    77. Caused by: java.lang.IllegalStateException: You need to use a Theme.AppCompat theme (or descendant) with this activity.
+
+    引用了依赖库，且依赖库的包名没有改正确，而且依赖库里有values-11这个文件夹，里面的style貌似与主工程里的style相同，导致了错误，删除掉就好了。
+
+
+
+    78.依赖库莫名的死活找不到，clean rebuild都不行。
+
+    将依赖库注释掉，clean，然后解开注释，再次clean就能解决问题。但事先要确保不是代码的问题。
+
+
+
+    79.
+
+    错误如下：
+
+    To run dex in process, the Gradle daemon needs a larger heap. It currently has approximately 910 MB.
+
+    For faster builds, increase the maximum heap size for the Gradle daemon to more than 2048 MB.
+
+    To do this set org.gradle.jvmargs=-Xmx2048M in the project gradle.properties.
+
+
+    应该大概是需要更大的内存才能跑起来吧
+
+    1.首先在build文件加上dexOptions {javaMaxHeapSize "2g"}
+
+    [html] view plain copy 在CODE上查看代码片派生到我的代码片
+    android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+    aaptOptions { cruncherEnabled = false }
+    ...
+    dexOptions {
+    javaMaxHeapSize "2g"
+    }
+    }
+
+    2.上面错误中叫你在gradle.properties中设置org.gradle.jvmargs=-Xmx2048M，因此
+
+
+    [html] view plain copy 在CODE上查看代码片派生到我的代码片
+    # Project-wide Gradle settings.
+
+    # IDE (e.g. Android Studio) users:
+    # Gradle settings configured through the IDE *will override*
+    # any settings specified in this file.
+
+    # For more details on how to configure your build environment visit
+    # http://www.gradle.org/docs/current/userguide/build_environment.html
+
+    # Specifies the JVM arguments used for the daemon process.
+    # The setting is particularly useful for tweaking memory settings.
+    # Default value: -Xmx10248m -XX:MaxPermSize=256m
+    # org.gradle.jvmargs=-Xmx2048m -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8
+
+    # When configured, Gradle will run in incubating parallel mode.
+    # This option should only be used with decoupled projects. More details, visit
+    # http://www.gradle.org/docs/current/userguide/multi_project_builds.html#sec:decoupled_projects
+    # org.gradle.parallel=true
+    # org.gradle.jvmargs=-Xmx2048m
+    即可解决。其中2048，这些数字取决于错误提示上写的数字，自己改动就好了。
+    如果以上都不能解决，也可能是引用了多个librares文件，可以添加multiDexEnabled true解决。
+
+    defaultConfig {
+
+    .....
+    multiDexEnabled true
+    }
+
