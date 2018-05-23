@@ -1,0 +1,45 @@
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.1"
+    defaultConfig {
+        applicationId "com.wangpos.test"
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+
+        }
+        debug{
+
+        }
+    }
+
+}
+/*
+*  compileSdkVersion 26  //告诉 Gradle 用哪个 Android SDK 版本编译你的应用,当你修改了 compileSdkVersion 的时候，
+*       可能会出现新的编译警告、编译错误，但新的 compileSdkVersion 不会被包含到 APK 中：它纯粹只是在编译的时候使用。
+*       compileSdkVersion 通常我们使用最新的，在编译的时候检查代码的错误和警告，提示开发者修改和优化
+* */
+
+/*
+    buildToolsVersion "26.0.1" 表示构建工具的版本号，这个属性值对应 AndroidSDK 中的 Android SDK Build-tools，
+    正常情况下 build.gradle 中的 buildToolsVersion 跟你电脑中 Android SDK Build-tools 的最新版本是一致的
+ */
+/*
+    minSdkVersion 15  //应用可以运行的最低要求,app运行所需的最低sdk版本.低于minSdkVersion的手机将无法安装.
+ */
+/*
+    targetSdkVersion 26 // 兼容的SDK版本，，如何选择targetSdkVersion取决于应用程序需要实现的功能，如果你的应用程序使用API 7就可以实现的功能
+    ，可以不用考虑使用API 26，使用低版本API的其中一个好处，可以让更多的Android系统运行的效果保持一致，即兼容性更好，
+    打个比方：API 7开发的APP可能兼容98%以上的Android手机，而API 24开发的APP可能兼容仅有60%，
+    所谓的不兼容并不是无法正常运行，而是在不同Android系统的手机运行的效果差异比较大，会让用户感觉难以接受；
+    使用低版本API的其中一个不足，显示的效果比较OUT，提供的可用的接口或类比较少，本来一句代码可以完成的功能（封装的类或接口），
+    需要自己花一天琢磨写很多的代码，也就是有高版本API的其中一个原因，提供更多的或封装好的应用程序接口让开发者使用。
+ */
