@@ -1,0 +1,10 @@
+// Gradle 插件分类
+
+//使用了 com.android.application 插件 ，该插件用于编译 Android 应用。
+apply plugin: 'com.android.application'
+
+//com.android.library，该插件用于编译Android lib
+apply plugin:'com.android.library'
+
+//com.android.test,该插件用于测试Android项目
+apply plugin:'com.android.test'
