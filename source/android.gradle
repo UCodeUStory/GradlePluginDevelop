@@ -56,6 +56,14 @@ android {
 
     }
 
+    lintOptions {
+        //build release 版本 时 开启lint 检测
+        checkReleaseBuilds true
+        //lint 遇到 error 时继续 构建
+        abortOnError false
+
+    }
+
     dexOptions{
         javaMaxHeapSize "4g"
     }

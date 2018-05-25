@@ -1,0 +1,24 @@
+
+
+android{
+    buildType{
+        release{
+            //删除无用资源  shrinkResources true 一般在release里配置
+            shrinkResources true
+            //zipalign优化的最根本目的是帮助操作系统更高效率的根据请求索引资源 一般在release里配置
+            zipAlignEnabled true
+            //true 是运行混淆文件 ，false 是不运行混淆文件, 如果没有提供混淆规则文件，则设置默认的混淆规则文件 （SDK/tools/proguard/proguard-android.txt）
+            minifyEnabled true
+            //提供混淆文件proguardFiles getDefaultProguardFile('proguard-Android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //是否支持本地化整理
+            pseudoLocalesEnabled true
+            //是否打开debuggable开关
+            debuggable false
+            //是否打开jniDebuggable开关
+            jniDebuggable false
+
+            signingConfig  signingConfigs.release
+        }
+    }
+}

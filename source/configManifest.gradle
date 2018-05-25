@@ -1,0 +1,30 @@
+//
+//
+//通过${name}，使得你可以在你的Manifest插入一个占位符。看下面的例子:
+//
+//<activity android:name=".Main">
+//<intent-filter>
+//<action android:name="${applicationId}.foo">
+//</action>
+//        </intent-filter>
+//</activity>
+//
+//    通过上面的代码，${applicationId}会被替换成真实的applicationId,例如对于branchOne这个variant,它会变成：
+//
+//    <action android:name="com.example.branchOne.foo">
+//
+//
+//这是非常有用的，因为我们要根据variant用不同的applicationId填充Manifest.
+//
+//
+//如果你想创建自己的占位符，你可以在manifestPlaceholders定义，语法是：
+//
+//    productFlavors {
+//        branchOne {
+//            manifestPlaceholders = [branchCustoName :"defaultName"]
+//        }
+//        branchTwo {
+//            manifestPlaceholders = [branchCustoName :"otherName"]
+//        }
+//    }
+//

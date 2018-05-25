@@ -1,0 +1,12 @@
+lintOptions {
+    //build release 版本 时 开启lint 检测
+    checkReleaseBuilds true
+    //lint 遇到 error 时继续 构建
+    abortOnError false
+
+}
+
+//也可以手动在在项目根目录执行./gradlew lint 执行完后会生成 各项目的信息，最后生成一个xml报告（
+// 会在项目/app/build/outputs/lint-results-构建flavor名.html）然后可以使用浏览器打开查看
+
+//Wrote HTML report to file:///Users/qiyue/GitProject/GradlePluginWS/GradlePlugin/app/build/outputs/lint-results-obmDebug.html
