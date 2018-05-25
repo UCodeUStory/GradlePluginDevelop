@@ -7,7 +7,7 @@
     
     
 - [初识Gradle 和 领域专用语言](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/day01.gradle)
-- [Gradle 版本配置](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/day02.gradle)
+- [Gradle 版本配置](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/day02.md)
 - [Gradle 模块配置](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/day03.gradle)
 - [Gradle 插件分类](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/day04.gradle)
 - [Gradle Android插件包含的内容](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/android.gradle)
