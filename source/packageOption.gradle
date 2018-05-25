@@ -1,0 +1,15 @@
+//
+//当你的程序需要引用两个及以上的module library或者其他的jar包是出现错误类型如下
+//Error:Execution failed for task ':app:transformResourcesWithMergeJavaResForDebug'.
+//        > com.android.build.api.transform.TransformException: com.android.builder.packaging.DuplicateFileException: Duplicate files copied in APK org/apache/log4j/xml/log4j.dtd
+//File1: /Users/minyuchun/androidwork/projectstudio/StarFaceFrame/app/build/intermediates/exploded-aar/StarFaceFrame/facelibrary/unspecified/jars/classes.jar
+//File2: /Users/minyuchun/androidwork/projectstudio/StarFaceFrame/app/build/intermediates/exploded-aar/StarFaceFrame/rylibrary/unspecified/jars/classes.jar
+
+android{
+
+
+    packagingOptions{
+        exclude 'org/apache/log4j/xml/log4j.dtd'
+    }
+
+}

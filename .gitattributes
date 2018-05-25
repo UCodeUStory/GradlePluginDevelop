@@ -1,0 +1,3 @@
+ linguist-language=Groovy
+*.css linguist-language=Groovy
+*.html linguist-language=Groovy
