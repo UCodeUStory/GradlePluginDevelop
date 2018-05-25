@@ -1,32 +1,6 @@
 apply plugin: 'com.android.application'
 
-android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.1"
-    defaultConfig {
-        applicationId "com.wangpos.test"
-        minSdkVersion 15
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-    }
-
-
-    buildTypes {
-        release {
-            minifyEnabled false
-
-        }
-        debug{
-
-        }
-    }
-
-
-
-}
-
+apply from:'../source/android.gradle'
 
 
 buildscript {
@@ -34,6 +8,7 @@ buildscript {
         maven {
             url uri('../repo')
         }
+
         jcenter()
     }
 

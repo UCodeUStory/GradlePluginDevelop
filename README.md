@@ -5,6 +5,33 @@
 
     这一次一定要系统掌握，你准备好了吗？
     
+    
+- [初识Gradle 和 领域专用语言]()
+- Gradle 版本配置
+- Gradle 模块配置
+- Gradle 插件分类
+- Gradle Android插件包含的内容（常用模块含义、applicationid 和package区别）
+- Gradle 统一配置你的版本号
+- Gradle 分渠道打包
+- Gradle 配置你的AndroidManifest.xml 
+- Gradle 编译器动态生成java 配置
+- Gradle 指定你的源码路径
+- Gradle 改变项目依赖路径
+- Gradle lintOption
+- Gradle 指定使用的java版本
+- Gradle 优化项目 （代码混淆、
+- Gradle gradle.properties 配置gradle版本和buildTools版本，和一些不便的版本
+- Gradle 使用variantFilter修改生成apk
+- Gradle 指定java版本
+
+- Gradle 生成测试报告
+- Gradle 生成接口文档
+- AAR 生成
+- jar 生成
+- 元编程
+
+  
+  
 使用Android Studio开发Gradle插件
 
 - 1. 创建一个Android Library类型的Moudle；例如mygradleplugin

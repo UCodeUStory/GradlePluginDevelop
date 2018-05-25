@@ -8,14 +8,12 @@ import android.util.Log;
 
 public class Presenter {
 
-
+    /**
+     * 动态插入
+     */
     public void onResume(){
 
     }
-
-
-
-
 
     @OnResume(1)
     public void test(){

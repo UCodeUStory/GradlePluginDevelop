@@ -1,0 +1,13 @@
+android {
+      compileOptions {
+              sourceCompatibility JavaVersion.VERSION_1_6
+              targetCompatibility JavaVersion.VERSION_1_6
+      }
+}
+
+
+/*
+ * 设置 Java 的版本
+ *
+ * 你可以使用 compileOptions 块选择编译器使用的版本。默认由 compileSdkVersion 的值来决定。
+ */

@@ -23,4 +23,12 @@ public class ExampleInstrumentedTest {
 
         assertEquals("com.wangpos.test", appContext.getPackageName());
     }
+
+    @Test
+    public void useAppDebugContext() throws Exception {
+        // Context of the app under test.
+        Context appContext = InstrumentationRegistry.getTargetContext();
+
+        assertEquals("com.wangpos.test.debug", appContext.getPackageName());
+    }
 }
