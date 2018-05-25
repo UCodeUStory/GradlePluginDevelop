@@ -32,7 +32,8 @@
 
   
   
-使用Android Studio开发Gradle插件
+#### 开发Gradle插件
+
 
 - 1. 创建一个Android Library类型的Moudle；例如mygradleplugin
 - 2. 将此Module的java修改改成groovy
