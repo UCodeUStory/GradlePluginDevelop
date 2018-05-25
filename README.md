@@ -6,23 +6,23 @@
     这一次一定要系统掌握，你准备好了吗？
     
     
-- [初识Gradle 和 领域专用语言]()
-- Gradle 版本配置
-- Gradle 模块配置
-- Gradle 插件分类
-- Gradle Android插件包含的内容（常用模块含义、applicationid 和package区别）
-- Gradle 统一配置你的版本号
-- Gradle 分渠道打包
-- Gradle 配置你的AndroidManifest.xml 
+- [初识Gradle 和 领域专用语言](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/day01.gradle)
+- [Gradle 版本配置](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/day02.gradle)
+- [Gradle 模块配置](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/day03.gradle)
+- [Gradle 插件分类](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/day04.gradle)
+- [Gradle Android插件包含的内容](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/android.gradle)
+- [Gradle 统一配置你的版本号](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/version.gradle)
+- [Gradle 分渠道打包](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/productflavor.gradle)
+- [Gradle 配置你的AndroidManifest](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/android.gradle)
 - Gradle 编译器动态生成java 配置
-- Gradle 指定你的源码路径
+- [Gradle 指定你的源码路径](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/sourceSet.gradle)
 - Gradle 改变项目依赖路径
 - Gradle lintOption
 - Gradle 指定使用的java版本
 - Gradle 优化项目 （代码混淆、
-- Gradle gradle.properties 配置gradle版本和buildTools版本，和一些不便的版本
-- Gradle 使用variantFilter修改生成apk
-- Gradle 指定java版本
+- [Gradle gradle.properties 配置gradle版本和buildTools版本，和一些不便的版本](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/properties.gradle)
+- [Gradle 使用variantFilter修改生成apk](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/renameapk.gradle)
+- [Gradle 指定java版本](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/set_java_version.gradle)
 
 - Gradle 生成测试报告
 - Gradle 生成接口文档
