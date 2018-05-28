@@ -25,6 +25,8 @@
 - [Gradle 指定java版本](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/set_java_version.gradle)
 - [Gradle packagingOptions解决重复包和文件](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/packageOption.gradle)
 - [AndroidStudio常见问题](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/android_studio.xml)
+- [Gradle 打包apk] ./gradlew assembleRelease assembleRelease
+是什么命令，还是task，内部依赖又是怎么样，怎么列出所有task
 - Gradle 生成测试报告
 - Gradle 生成接口文档
 - AAR 生成

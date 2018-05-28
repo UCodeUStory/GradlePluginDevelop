@@ -20,8 +20,8 @@ buildscript {
 }
 
 apply plugin: 'com.micky.mycustom'
-
-apply plugin: 'com.micky.myTransform'
+//./gradlew assembleRelease 打包 会生成多个渠道包，在插件修改字节码文件的时候回报错，所以只能单独打包带有修改字节码插件的项目
+//apply plugin: 'com.micky.myTransform'
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])

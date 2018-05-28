@@ -1,19 +1,19 @@
 
 
-def initMyBuildConfig(key,value) {
-    def configFile = "${projectDir}/src/cn/weipass/util/config/build/BuildConfigDefault.java"
-    def encoding = "UTF-8"
-    def lines = []
-    new File(configFile).newReader(encoding).eachLine { line ->
-        lines.add( replaceStringMemberValue(line,key,value) )
-    }
-
-    BufferedWriter writer = new File(configFile).newWriter(encoding)
-    lines.each{ line ->  writer.writeLine(line) }
-    writer.close()
-}
-
-initMyBuildConfig("key","")
+//def initMyBuildConfig(key,value) {
+//    def configFile = "${projectDir}/src/cn/weipass/util/config/build/BuildConfigDefault.java"
+//    def encoding = "UTF-8"
+//    def lines = []
+//    new File(configFile).newReader(encoding).eachLine { line ->
+//        lines.add( replaceStringMemberValue(line,key,value) )
+//    }
+//
+//    BufferedWriter writer = new File(configFile).newWriter(encoding)
+//    lines.each{ line ->  writer.writeLine(line) }
+//    writer.close()
+//}
+//
+//initMyBuildConfig("key","")
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion localBuildToolsVersion
