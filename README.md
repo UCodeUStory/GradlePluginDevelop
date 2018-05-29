@@ -14,9 +14,8 @@
 - [Gradle 统一配置你的版本号](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/version.gradle)
 - [Gradle 分渠道打包](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/productflavor.gradle)
 - [Gradle 配置你的AndroidManifest](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/configManifest.gradle)
-- Gradle 编译器动态生成java 配置
 - [Gradle 指定你的源码路径、动态去除不需要打包的类](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/sourceSet.gradle)
-- Gradle 改变项目依赖路径
+- [Gradle 项目依赖配置](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/project_library.md)
 - [Gradle lintOption](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/lintOption.gradle)
 - [lint报告](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/lint-results-obmDebug.html)
 - [Gradle 优化项目](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/optimization.gradle)
@@ -25,7 +24,11 @@
 - [Gradle 指定java版本](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/set_java_version.gradle)
 - [Gradle packagingOptions解决重复包和文件](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/packageOption.gradle)
 - [AndroidStudio常见问题](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/android_studio.xml)
-- [Gradle 打包apk] ./gradlew assembleRelease assembleRelease
+- [Gradle 命令打包apk](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/assemble.md)
+- [Gradle 命令行传递参数](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/assembleWithParams.md)
+- [Gradle 编译器动态生成java 配置]()
+- [Gradle 创建Task](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/task.md)
+- [Gradle 打包选择不同的AndroidManifest.xml](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/diffManifest.md)
 是什么命令，还是task，内部依赖又是怎么样，怎么列出所有task
 - Gradle 生成测试报告
 - Gradle 生成接口文档
@@ -45,7 +48,7 @@
  - 1.找不到依赖库，需要在repositories中添加jcenter()
  - 2.javassist找不到jar包，就是需要javassist引入jar包
  - 3.发现生成的apk没有变化，删除了build目录重新build，仍然无变化，点击Android Studio setting 清理缓存，重新启动
-
+ - 4.项目app修改名字报错时提示找不到项目，一般根目录.idea就可以解决
 
 
 

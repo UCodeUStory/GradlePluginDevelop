@@ -14,6 +14,20 @@
 //}
 //
 //initMyBuildConfig("key","")
+
+def custom = project.hasProperty('custom')?custom:'defaultCustom'
+def testName = project.hasProperty('TestName')?TestName:'defaultName'
+
+println(custom)
+
+println(testName)
+
+//if (project.hasProperty('TestName')){
+//    println('TestName='+project.getProperties().get("TestName"))
+//    println('TestName='+getProperties().get("TestName"))
+//}
+
+
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion localBuildToolsVersion

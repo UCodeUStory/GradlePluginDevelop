@@ -19,15 +19,6 @@
 ./gradlew installRelease Release模式打包并安装
 ./gradlew uninstallRelease 卸载Release模式包
 
-加入自定义参数：
-比如我们想根据不同的参数来进行不用的编译配置，可以在./gradlew中加入自定义参数。
-
-./gradlew assembleDebug -Pcustom=true
-就可以在build.gradle中使用下面代码来判断：
-
-if (project.hasProperty('custom')){
-
-}
 
 assemble结合Build Variants来创建task
 assemble 还能和 Product Flavor 结合创建新的任务，其实 assemble 是和 Build Variants 一起结合使用的，而 Build Variants = Build Type + Product Flavor，举个例子大家就明白了： 
