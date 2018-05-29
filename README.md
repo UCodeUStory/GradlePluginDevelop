@@ -29,11 +29,16 @@
 - Gradle 编译器动态生成java 配置
 - [Gradle 创建Task](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/task.md)
 - [Gradle 打包选择不同的AndroidManifest.xml](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/diffManifest.md)
+- [Gradle 执行顺序](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/exeRank.md)
 - Gradle 生成测试报告
 - Gradle 生成接口文档
 - AAR 生成
-- jar 生成
+- [jar 生成](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/makeJar.md)
 - 元编程
+- 查看所有tasks命令
+
+
+    ./gradlew tasks --all
 
   
 #### Gradle高级插件开发

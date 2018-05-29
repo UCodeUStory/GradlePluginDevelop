@@ -31,6 +31,38 @@ task releaseJar <<{
     println('***创建jar包***')
 }
 
+//这个Task必须手动调用，因为这是一个继承Copy的task
+task copyDocs(type: Copy) {
+    println("copyDoc开始执行...")
+    from 'src/main/doc'
+    into 'build/target/doc'
+    println("copyDocs执行完...")
+}
+
+
+task makeSdkJar(type:org.gradle.api.tasks.bundling.Jar){
+
+    baseName 'TestSDK'
+
+    //只打包org.cmdmac下的org.cmdmac.pluginsdk.impl和org.cmdmac.gamecenter,其他子包不会被打包进去
+
+    from('build/intermediates/classes/obm/debug'){
+        //有了include表示只包括某些文件
+        include'com/wangpos/test/MainActivity.class'
+//
+        include'com/wangpos/test/Presenter.class'
+
+    }
+
+//    into('org/cmdmac/')
+
+    // 排除一些文件
+         exclude('com/wangpos/test/Presenter.class')
+
+    //    exclude{ it.name.startsWith('R$');}
+
+}
+
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -105,6 +137,24 @@ android {
 
     testOptions {
         resultsDir = "${project.buildDir}/foo/results"
+    }
+
+    project.afterEvaluate{
+        tasks.getByName("copyDocs"){
+            it.doFirst {
+                println("执行配置111")
+            }
+            it.doLast {
+                println("执行配置222")
+            }
+        }
+    }
+
+    project.assemble.doLast {
+        println "assemble finish"
+    }
+    project.assemble.doFirst {
+        println "assemble start"
     }
 }
 /*
