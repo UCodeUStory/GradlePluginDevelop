@@ -40,7 +40,7 @@ task copyDocs(type: Copy) {
 }
 
 
-task makeSdkJar(type:org.gradle.api.tasks.bundling.Jar){
+task makeSdkJar(type:org.gradle.api.tasks.bundling.Jar, dependsOn: 'build'){
 
     baseName 'TestSDK'
 
