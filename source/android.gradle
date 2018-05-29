@@ -17,15 +17,19 @@
 
 def custom = project.hasProperty('custom')?custom:'defaultCustom'
 def testName = project.hasProperty('TestName')?TestName:'defaultName'
-
 println(custom)
-
 println(testName)
 
-//if (project.hasProperty('TestName')){
-//    println('TestName='+project.getProperties().get("TestName"))
-//    println('TestName='+getProperties().get("TestName"))
-//}
+/**这个task会自动运行,注意脚本运行顺序由上到下*/
+task initTask{
+
+    println('***初始化模块***')
+
+}
+/**在终端手动调用的时候才会执行 ./gradlew releaseJar*/
+task releaseJar <<{
+    println('***创建jar包***')
+}
 
 
 android {

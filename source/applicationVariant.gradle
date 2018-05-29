@@ -1,0 +1,45 @@
+//1重命名
+
+android{
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            outputFileName = getProductName() + "_v${defaultConfig.versionName}_${releaseTime()}" + '_release.apk'
+        }
+    }
+}
+
+
+//2.假设，我想设置一个applicationId给branchTwo和distrib结合的variant,我可以在build.gradle里面这样写：
+
+applicationVariants.all { variant ->
+    def mergedFlavor = variant.mergedFlavor
+    switch (variant.flavorName) {
+        case "brancheTwoDistrib":
+            mergedFlavor.setApplicationId("com.example.oldNameBranchTwo")
+            break
+    }
+}
+//3.有时某些buildTypes-flavor结合没有意义，我们想告诉Gradle不要生成这些variants，只需要用variant filter就可以做到
+
+variantFilter { variant ->
+    if (variant.buildType.name.equals('release')) {
+        variant.setIgnore(!variant.getFlavors().get(1).name.equals('distrib'));
+    }
+    if (variant.buildType.name.equals('debug')) {
+        variant.setIgnore(variant.getFlavors().get(1).name.equals('distrib'));
+    }
+}
+
+//在上面的代码中，我们告诉Gradle buildType=debug不要和flavor=distrib结合而buildType=release只和flavor=distrib结合，生成的Variants
+
+//4.修改生成apk路径和应用名字
+applicationVariants.all { variant ->
+    variant.getPackageApplication().outputDirectory = new File(project.rootDir.absolutePath +'/apk/'+DeviceType)
+    variant.outputs.all { output ->
+        if(WPOS_APP_openAdb==1){
+            outputFileName = 'WangposService_3-release_adbIsOpen'+'.apk'
+        }else{
+            outputFileName = 'WangposService_3-release'+'.apk'
+        }
+    }
+}
