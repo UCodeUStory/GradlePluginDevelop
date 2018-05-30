@@ -34,11 +34,8 @@
 - [Gradle 生成接口文档](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/genJavadoc.md)
 - [AAR 生成](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/aar.md)
 - [jar 生成](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/makeJar.md)
-- 元编程
-- 查看所有tasks命令
-
-
-    ./gradlew tasks --all
+- [元编程](ttps://github.com/UCodeUStory/GradlePlugin/blob/master/source/metaprogramming.md)
+- 查看所有tasks命令    *./gradlew tasks --all*
 
   
 #### Gradle高级插件开发
