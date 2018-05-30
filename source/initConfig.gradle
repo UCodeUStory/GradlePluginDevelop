@@ -1,0 +1,62 @@
+
+
+
+def replaceFirstIfTaged(str, tag, src, dest) {
+    if (str.contains(tag)) {
+        println "** ${tag} = ${dest};"
+        return str.replaceFirst(src, "${dest}")
+    }
+    return str
+}
+
+def replaceInt(key, src, value) {
+    def configFile = "${projectDir}/src/main/java/config/BuildConfigDefault.java"
+    def encoding = "UTF-8"
+    def lines = []
+    new File(configFile).newReader(encoding).eachLine { line ->
+        lines.add(replaceFirstIfTaged(line, key, src, value))
+    }
+
+    BufferedWriter writer = new File(configFile).newWriter(encoding)
+    lines.each { line -> writer.writeLine(line) }
+    writer.close()
+}
+
+/**
+ * 替换整数
+ * @param key
+ * @param value
+ * @return
+ */
+def initConfigInt(key, value) {
+    replaceInt(key, /\d+/, value)
+}
+
+//替换代码中字符串变量的值
+def replaceStringMemberValue(str, tag, dest) {
+    if (str.contains(tag)) {
+        println "** ${tag} = ${dest};"
+        str = str.substring(0, str.indexOf("\"") + 1);
+        str = str + dest + "\";";
+        return str
+    }
+    return str
+}
+
+def initConfigString(key, value) {
+    println("'projectDir=" + projectDir)///Users/qiyue/GitProject/GradlePluginWS/GradlePlugin/app
+
+    def configFile = "${projectDir}/src/main/java/config/BuildConfigDefault.java"
+    def encoding = "UTF-8"
+    def lines = []
+    new File(configFile).newReader(encoding).eachLine { line ->
+        lines.add(replaceStringMemberValue(line, key, value))
+    }
+
+    BufferedWriter writer = new File(configFile).newWriter(encoding)
+    lines.each { line -> writer.writeLine(line) }
+    writer.close()
+}
+
+initConfigString("name", "configName")
+initConfigInt("isOpen", 4)

@@ -1,0 +1,62 @@
+ext {
+    baseDevConfigs = [
+            'InstallManager'
+            ,
+            'InstallManager'
+            ,
+            'InstallManager'
+            ,
+            'InstallManager'
+            ,
+            'InstallManager'
+
+
+    ]
+}
+
+/**
+ * 生成新的ServiceLoader.java文件内容
+ * @return
+ */
+def initServiceLoaderFile() {
+    def configFile = "${projectDir}/src/main/java/config/ServiceLoader.java"
+    File file = new File(configFile);
+    def oldlines = file.readLines();
+    def newlines = []
+    int startIndex = -1;
+    int i = 0;
+    def expConfig = "configs.put(";
+
+    def packageIndex = 0;
+    for (line in oldlines) {
+        if (!line.contains("configs.put")) {
+            newlines.add(line)
+        }
+        if (line.contains("package")) {
+            packageIndex = i;
+        }
+        if (line.contains("public ServiceLoader(){")){
+            startIndex = i;
+        }
+
+        i++;
+
+    }
+    if (!newlines.contains("import com.wangpos.test.inter.*;")) {
+        newlines.add(packageIndex + 1, "import com.wangpos.test.inter.*;");
+    }
+
+    //拼接默认配置内容
+    for (line in baseDevConfigs) {
+
+        def instance = "		configs.put(${line}.class,${line}Impl.class);";
+        newlines.add(startIndex+1, instance);
+
+    }
+
+    PrintWriter writer = file.newPrintWriter("UTF-8")
+    newlines.each { line -> writer.println(line) }
+    writer.close()
+}
+
+initServiceLoaderFile()

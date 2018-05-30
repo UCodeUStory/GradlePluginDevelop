@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 
+apply from:'../source/initConfig.gradle'
+apply from:'../source/initServiceLoader.gradle'
 apply from:'../source/android.gradle'
 
 

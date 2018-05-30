@@ -78,3 +78,114 @@ initConfigInt("isOpen",4)
 
 
 - 修改我们的serviceLoader
+    
+    ext {
+        baseDevConfigs = [
+                'InstallManager'
+                ,
+                'InstallManager'
+                ,
+                'InstallManager'
+                ,
+                'InstallManager'
+                ,
+                'InstallManager'
+    
+    
+        ]
+    }
+    
+    /**
+     * 生成新的ServiceLoader.java文件内容
+     * @return
+     */
+    def initServiceLoaderFile() {
+        def configFile = "${projectDir}/src/main/java/config/ServiceLoader.java"
+        File file = new File(configFile);
+        def oldlines = file.readLines();
+        def newlines = []
+        int startIndex = -1;
+        int i = 0;
+        def expConfig = "configs.put(";
+    
+        def packageIndex = 0;
+        for (line in oldlines) {
+            if (!line.contains("configs.put")) {
+                newlines.add(line)
+            }
+            if (line.contains("package")) {
+                packageIndex = i;
+            }
+            if (line.contains("public ServiceLoader(){")){
+                startIndex = i;
+            }
+    
+            i++;
+    
+        }
+        if (!newlines.contains("import com.wangpos.test.inter.*;")) {
+            newlines.add(packageIndex + 1, "import com.wangpos.test.inter.*;");
+        }
+    
+        //拼接默认配置内容
+        for (line in baseDevConfigs) {
+    
+            def instance = "		configs.put(${line}.class,${line}Impl.class);";
+            newlines.add(startIndex+1, instance);
+    
+        }
+    
+        PrintWriter writer = file.newPrintWriter("UTF-8")
+        newlines.each { line -> writer.println(line) }
+        writer.close()
+    }
+    
+    initServiceLoaderFile()
+    
+    
+### 文件操作基础
+
+- 文件对象
+在工程目录下，我们可以通过File的构造方法来快速定位一个文件并创建相应的File对象：
+    
+        // 传入文件的相对路径
+        File configFile = new File('src/config.xml')
+        
+        // 传入文件的绝对路径
+        configFile = new File(configFile.absolutePath)
+        
+        // 通过相对路径构建一个 java.nio.file.Path 对象并传入
+        configFile = new File(Paths.get('src', 'config.xml'))
+        
+        // 读取property变量构建 java.nio.file.Path 对象并传入
+        configFile = new File(Paths.get(System.getProperty('user.home')).resolve('global-config.xml'))
+    
+    - 文件集合FileCollection
+
+这个接口描述了针对一组文件的操作和属性。在Gradle中，许多类都继承了这一接口，例如依赖配置对象dependency configurations .
+与创建File对象不同，创建FileCollection对象的唯一方式是通过 Project.files(java.lang.Object[])
+方法，该方法的入参数目是任意多个，类型也可以是表示相对路径的字符串，File对象，甚至是集合，数组等。
+ 
+    
+    FileCollection collection = files('src/file1.txt',
+                                      new File('src/file2.txt'),
+                                      ['src/file3.txt', 'src/file4.txt'],
+                                      Paths.get('src', 'file5.txt'))
+
+
+    // 遍历文件集合
+    collection.each { File file ->
+        println file.name
+    }
+    
+    // 将FileCollection对象转换为其他类型
+    Set set = collection.files
+    Set set2 = collection as Set
+    List list = collection as List
+    String path = collection.asPath
+    File file = collection.singleFile
+    File file2 = collection as File
+    
+    // 对FileCollection进行加减操作
+    def union = collection + files('src/file3.txt')
+    def different = collection - files('src/file3.txt')

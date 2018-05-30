@@ -1,133 +1,18 @@
-/**
- * 生成新的ServiceLoader.java文件内容
- * @return
- */
-def genServiceLoaderFile() {
-    File file = new File("${sourceDir}${packagePathSdk}/impl/ServiceLoader.java");
-    def oldlines = file.readLines();
-    def newlines = []
-    int startIndex = -1;
-    int i = 0;
-    def expConfig = "configs.put(";
-    def expImport = "import cn.weipass.pos.sdk.";
-    boolean isImport = false;
-    for (line in oldlines) {
-        if (!line.contains(expConfig)) {
-            newlines.add(line);
-        } else if (line.startsWith(expImport)) {
-            if (!isImport) {
-                newlines.add("import cn.weipass.pos.sdk.*;");
-                isImport = true;
-            }
-        } else {
-            if (startIndex == -1) {
-                startIndex = i;
-            }
-        }
-        i++;
-    }
-
-    //拼接默认配置内容
-    for (line in baseDevConfigs) {
-        newlines.add(startIndex, "		configs.put(${line}.class,${line}Imp.class);");
-    }
-//    //拼接系统开发者的配置内容
-//    if (developerType == 1) {
-//        for (line in sysDevConfigs) {
-//            newlines.add(startIndex, "		configs.put(${line}.class,${line}Imp.class);");
-//        }
-//    } else if (developerType == 2|| developerType == 3) {
-//        for (line in casherDevConfigs) {
-//            newlines.add(startIndex, "		configs.put(${line}.class,${line}Imp.class);");
-//        }
-//    }
-
-    PrintWriter writer = file.newPrintWriter("UTF-8")
-    newlines.each { line -> writer.println(line) }
-    writer.close()
-}
-
-genServiceLoaderFile()
 
 
-
-
-def replaceFirstIfTaged(str,tag,src,dest) {
-    if (str.contains(tag)) {
-        println "** ${tag} = ${dest};"
-        return str.replaceFirst(src, "${dest}")
-    }
-    return str
-}
-
-def replaceInt(key,src,value) {
-    def configFile = "${projectDir}/src/main/java/config/BuildConfigDefault.java"
-    def encoding = "UTF-8"
-    def lines = []
-    new File(configFile).newReader(encoding).eachLine { line ->
-        lines.add( replaceFirstIfTaged(line,key,src,value) )
-    }
-
-    BufferedWriter writer = new File(configFile).newWriter(encoding)
-    lines.each{ line ->  writer.writeLine(line) }
-    writer.close()
-}
-
-
-
-/**
- * 替换整数
- * @param key
- * @param value
- * @return
- */
-def initConfigInt(key,value) {
-    replaceInt(key,/\d+/,value)
-}
-
-
-//替换代码中字符串变量的值
-def replaceStringMemberValue(str,tag,dest) {
-    if (str.contains(tag)) {
-        println "** ${tag} = ${dest};"
-        str=str.substring(0,str.indexOf("\"")+1);
-        str=str+dest+"\";";
-        return str
-    }
-    return str
-}
-
-def initConfigString(key,value) {
-    println("'projectDir="+projectDir)///Users/qiyue/GitProject/GradlePluginWS/GradlePlugin/app
-
-    def configFile = "${projectDir}/src/main/java/config/BuildConfigDefault.java"
-    def encoding = "UTF-8"
-    def lines = []
-    new File(configFile).newReader(encoding).eachLine { line ->
-        lines.add(replaceStringMemberValue(line,key,value))
-    }
-
-    BufferedWriter writer = new File(configFile).newWriter(encoding)
-    lines.each{ line ->  writer.writeLine(line) }
-    writer.close()
-}
-
-initConfigString("name","configName")
-initConfigInt("isOpen",4)
-
-def custom = project.hasProperty('custom')?custom:'defaultCustom'
-def testName = project.hasProperty('TestName')?TestName:'defaultName'
+def custom = project.hasProperty('custom') ? custom : 'defaultCustom'
+def testName = project.hasProperty('TestName') ? TestName : 'defaultName'
 println(custom)
 println(testName)
 
 /**这个task会自动运行,注意脚本运行顺序由上到下*/
-task initTask{
+task initTask {
 
     println('***初始化模块***')
 
 }
 /**在终端手动调用的时候才会执行 ./gradlew releaseJar*/
-task releaseJar <<{
+task releaseJar << {
     println('***创建jar包***')
 }
 
@@ -140,24 +25,24 @@ task copyDocs(type: Copy) {
 }
 
 
-task makeSdkJar(type:org.gradle.api.tasks.bundling.Jar, dependsOn: 'build'){
+task makeSdkJar(type: org.gradle.api.tasks.bundling.Jar, dependsOn: 'build') {
 
     baseName 'TestSDK'
 
     //只打包org.cmdmac下的org.cmdmac.pluginsdk.impl和org.cmdmac.gamecenter,其他子包不会被打包进去
 
-    from('build/intermediates/classes/obm/debug'){
+    from('build/intermediates/classes/obm/debug') {
         //有了include表示只包括某些文件
-        include'com/wangpos/test/MainActivity.class'
+        include 'com/wangpos/test/MainActivity.class'
 //
-        include'com/wangpos/test/Presenter.class'
+        include 'com/wangpos/test/Presenter.class'
 
     }
 
 //    into('org/cmdmac/')
 
     // 排除一些文件
-         exclude('com/wangpos/test/Presenter.class')
+    exclude('com/wangpos/test/Presenter.class')
 
     //    exclude{ it.name.startsWith('R$');}
 
@@ -190,33 +75,33 @@ android {
         release {
             signingConfig signingConfigs.keystore
             minifyEnabled false
-            manifestPlaceholders = ["app_name":'Gradle详解正式版']
-            buildConfigField "boolean","isDebug","false"
+            manifestPlaceholders = ["app_name": 'Gradle详解正式版']
+            buildConfigField "boolean", "isDebug", "false"
 
 
         }
-        debug{
+        debug {
             applicationIdSuffix ".debug"
-            manifestPlaceholders = ["app_name":'Gradle详解测试版']
-            buildConfigField "boolean","isDebug","true"
+            manifestPlaceholders = ["app_name": 'Gradle详解测试版']
+            buildConfigField "boolean", "isDebug", "true"
         }
 
-        other{
+        other {
             applicationIdSuffix ".other"
-            manifestPlaceholders = ["app_name":'Gradle普通版本']
-            buildConfigField "boolean","isDebug","false"
+            manifestPlaceholders = ["app_name": 'Gradle普通版本']
+            buildConfigField "boolean", "isDebug", "false"
         }
     }
 
-    productFlavors{
-        obm{
-            buildConfigField "String","VERSION","\"obm\""
+    productFlavors {
+        obm {
+            buildConfigField "String", "VERSION", "\"obm\""
         }
-        oem{
-            buildConfigField "String","VERSION","\"oem\""
+        oem {
+            buildConfigField "String", "VERSION", "\"oem\""
         }
-        odm{
-            buildConfigField "String","VERSION","\"odm\""
+        odm {
+            buildConfigField "String", "VERSION", "\"odm\""
         }
 
     }
@@ -230,7 +115,7 @@ android {
     }
 
 
-    dexOptions{
+    dexOptions {
         javaMaxHeapSize "4g"
     }
 
@@ -239,8 +124,8 @@ android {
         resultsDir = "${project.buildDir}/foo/results"
     }
 
-    project.afterEvaluate{
-        tasks.getByName("copyDocs"){
+    project.afterEvaluate {
+        tasks.getByName("copyDocs") {
             it.doFirst {
                 println("执行配置111")
             }
