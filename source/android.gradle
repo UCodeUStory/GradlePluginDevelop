@@ -1,5 +1,20 @@
 
 
+
+task javadoc(type: Javadoc,dependsOn: 'build') {
+
+    version "1.0.1"
+    options.addStringOption("charset", "UTF-8")
+    options.encoding = "UTF-8"
+    title = "MySDKII"
+
+    include(
+            "com/wangpos/test/inter/*.java",
+    )
+    source = android.sourceSets.main.java.srcDirs
+    failOnError false
+}
+
 def custom = project.hasProperty('custom') ? custom : 'defaultCustom'
 def testName = project.hasProperty('TestName') ? TestName : 'defaultName'
 println(custom)
@@ -24,8 +39,8 @@ task copyDocs(type: Copy) {
     println("copyDocs执行完...")
 }
 
-
-task makeSdkJar(type: org.gradle.api.tasks.bundling.Jar, dependsOn: 'build') {
+//依赖javadoc 意思是先把doc生成
+task makeSdkJar(type: org.gradle.api.tasks.bundling.Jar, dependsOn: 'javadoc') {
 
     baseName 'TestSDK'
 

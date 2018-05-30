@@ -1,0 +1,15 @@
+
+//在app/build/docs/javadoc/生成一些html  index.html是入口文件，在浏览器打开即可
+task javadoc(type: Javadoc,dependsOn: 'build') {
+
+    version "1.0.1"
+    options.addStringOption("charset", "UTF-8")
+    options.encoding = "UTF-8"
+    title = "MySDKII"
+
+    include(
+            "com/wangpos/test/inter/*.java",
+    )
+    source = android.sourceSets.main.java.srcDirs
+    failOnError false
+}

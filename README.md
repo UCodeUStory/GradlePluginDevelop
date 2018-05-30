@@ -31,7 +31,7 @@
 - [Gradle 打包选择不同的AndroidManifest.xml](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/diffManifest.md)
 - [Gradle 执行顺序](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/exeRank.md)
 - Gradle 生成测试报告
-- Gradle 生成接口文档
+- [Gradle 生成接口文档](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/genJavadoc.md)
 - [AAR 生成](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/aar.md)
 - [jar 生成](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/makeJar.md)
 - 元编程
