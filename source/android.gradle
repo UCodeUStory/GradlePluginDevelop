@@ -1,19 +1,119 @@
+/**
+ * 生成新的ServiceLoader.java文件内容
+ * @return
+ */
+def genServiceLoaderFile() {
+    File file = new File("${sourceDir}${packagePathSdk}/impl/ServiceLoader.java");
+    def oldlines = file.readLines();
+    def newlines = []
+    int startIndex = -1;
+    int i = 0;
+    def expConfig = "configs.put(";
+    def expImport = "import cn.weipass.pos.sdk.";
+    boolean isImport = false;
+    for (line in oldlines) {
+        if (!line.contains(expConfig)) {
+            newlines.add(line);
+        } else if (line.startsWith(expImport)) {
+            if (!isImport) {
+                newlines.add("import cn.weipass.pos.sdk.*;");
+                isImport = true;
+            }
+        } else {
+            if (startIndex == -1) {
+                startIndex = i;
+            }
+        }
+        i++;
+    }
 
-
-//def initMyBuildConfig(key,value) {
-//    def configFile = "${projectDir}/src/cn/weipass/util/config/build/BuildConfigDefault.java"
-//    def encoding = "UTF-8"
-//    def lines = []
-//    new File(configFile).newReader(encoding).eachLine { line ->
-//        lines.add( replaceStringMemberValue(line,key,value) )
+    //拼接默认配置内容
+    for (line in baseDevConfigs) {
+        newlines.add(startIndex, "		configs.put(${line}.class,${line}Imp.class);");
+    }
+//    //拼接系统开发者的配置内容
+//    if (developerType == 1) {
+//        for (line in sysDevConfigs) {
+//            newlines.add(startIndex, "		configs.put(${line}.class,${line}Imp.class);");
+//        }
+//    } else if (developerType == 2|| developerType == 3) {
+//        for (line in casherDevConfigs) {
+//            newlines.add(startIndex, "		configs.put(${line}.class,${line}Imp.class);");
+//        }
 //    }
-//
-//    BufferedWriter writer = new File(configFile).newWriter(encoding)
-//    lines.each{ line ->  writer.writeLine(line) }
-//    writer.close()
-//}
-//
-//initMyBuildConfig("key","")
+
+    PrintWriter writer = file.newPrintWriter("UTF-8")
+    newlines.each { line -> writer.println(line) }
+    writer.close()
+}
+
+genServiceLoaderFile()
+
+
+
+
+def replaceFirstIfTaged(str,tag,src,dest) {
+    if (str.contains(tag)) {
+        println "** ${tag} = ${dest};"
+        return str.replaceFirst(src, "${dest}")
+    }
+    return str
+}
+
+def replaceInt(key,src,value) {
+    def configFile = "${projectDir}/src/main/java/config/BuildConfigDefault.java"
+    def encoding = "UTF-8"
+    def lines = []
+    new File(configFile).newReader(encoding).eachLine { line ->
+        lines.add( replaceFirstIfTaged(line,key,src,value) )
+    }
+
+    BufferedWriter writer = new File(configFile).newWriter(encoding)
+    lines.each{ line ->  writer.writeLine(line) }
+    writer.close()
+}
+
+
+
+/**
+ * 替换整数
+ * @param key
+ * @param value
+ * @return
+ */
+def initConfigInt(key,value) {
+    replaceInt(key,/\d+/,value)
+}
+
+
+//替换代码中字符串变量的值
+def replaceStringMemberValue(str,tag,dest) {
+    if (str.contains(tag)) {
+        println "** ${tag} = ${dest};"
+        str=str.substring(0,str.indexOf("\"")+1);
+        str=str+dest+"\";";
+        return str
+    }
+    return str
+}
+
+def initConfigString(key,value) {
+    println("'projectDir="+projectDir)///Users/qiyue/GitProject/GradlePluginWS/GradlePlugin/app
+
+    def configFile = "${projectDir}/src/main/java/config/BuildConfigDefault.java"
+    def encoding = "UTF-8"
+    def lines = []
+    new File(configFile).newReader(encoding).eachLine { line ->
+        lines.add(replaceStringMemberValue(line,key,value))
+    }
+
+    BufferedWriter writer = new File(configFile).newWriter(encoding)
+    lines.each{ line ->  writer.writeLine(line) }
+    writer.close()
+}
+
+initConfigString("name","configName")
+initConfigInt("isOpen",4)
 
 def custom = project.hasProperty('custom')?custom:'defaultCustom'
 def testName = project.hasProperty('TestName')?TestName:'defaultName'

@@ -14,11 +14,11 @@
 - [Gradle 统一配置你的版本号](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/version.gradle)
 - [Gradle 分渠道打包](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/productflavor.gradle)
 - [Gradle 配置你的AndroidManifest](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/configManifest.gradle)
-- [Gradle 指定你的源码路径、动态去除不需要打包的类](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/sourceSet.gradle)
+- [Gradle 指定你的源码路径、动态去除不需要打包的类·优](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/sourceSet.gradle)
 - [Gradle 项目依赖配置](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/project_library.md)
-- [Gradle lintOption](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/lintOption.gradle)
+- [Gradle lintOption·优](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/lintOption.gradle)
 - [lint报告](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/lint-results-obmDebug.html)
-- [Gradle 优化项目](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/optimization.gradle)
+- [Gradle 打包优化配置·优](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/optimization.gradle)
 - [Gradle gradle.properties 配置gradle版本和buildTools版本，和一些不便的版本](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/properties.gradle)
 - [Gradle 使用variantFilter修改生成apk路径、名字](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/applicationVariant.gradle)
 - [Gradle 指定java版本](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/set_java_version.gradle)
@@ -26,13 +26,13 @@
 - [AndroidStudio常见问题](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/android_studio.xml)
 - [Gradle 命令打包apk](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/assemble.md)
 - [Gradle 命令行传递参数](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/assembleWithParams.md)
-- Gradle 编译器动态生成java 配置
+- [Gradle 编译器动态生成java·优](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/operate_file.md)
 - [Gradle 创建Task](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/task.md)
 - [Gradle 打包选择不同的AndroidManifest.xml](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/diffManifest.md)
 - [Gradle 执行顺序](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/exeRank.md)
 - Gradle 生成测试报告
 - Gradle 生成接口文档
-- AAR 生成
+- [AAR 生成](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/aar.md)
 - [jar 生成](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/makeJar.md)
 - 元编程
 - 查看所有tasks命令
