@@ -43,7 +43,8 @@
  - [Gradle Transform监听文件编译结束](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/gradle_tranform.gradle)
 
 #### [Android性能优化](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/android_performance_optimization.md)
-    
+#### [apk瘦身优化](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/android_apk_optimization.md) 
+
 ### 问题总结
 
  - 1.找不到依赖库，需要在repositories中添加jcenter()
