@@ -42,10 +42,10 @@
  - [插件开发详细步骤](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/plugin_develop.gradle)
  - [Gradle Transform监听文件编译结束](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/gradle_tranform.gradle)
 
-####Android性能优化
+#### Android性能优化
 - [apk瘦身优化](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/android_apk_optimization.md) 
 - [界面性能UI](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/ui_optimization.md) 
-
+- [内存泄露]
 
 ### 问题总结
 
