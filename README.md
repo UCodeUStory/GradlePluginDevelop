@@ -39,8 +39,8 @@
 
   
 #### Gradle高级插件开发
- - [插件开发详细步骤](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/plugin_develop.gradle)
- - [Gradle Transform监听文件编译结束](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/gradle_tranform.gradle)
+ - [插件开发详细步骤](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/plugin_develop.md)
+ - [Gradle Transform监听文件编译结束](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/gradle_tranform.md)
 
 #### Android性能优化
 - [apk瘦身优化](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/android_apk_optimization.md) 
