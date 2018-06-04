@@ -13,11 +13,11 @@
 
 - 3.Frame Buffer 中的数据怎么来
   
-          GPU 除了帧缓冲区 用以交给手机屏幕进行绘制外. 还有一个缓冲区 Back Buffer 这个用以交给应用的,让你往里面填充数据.
+          1)GPU 除了帧缓冲区 用以交给手机屏幕进行绘制外. 还有一个缓冲区 Back Buffer 这个用以交给应用的,让你往里面填充数据.
        GPU会定期交换 Back Buffer 和 Frame Buffer 也就是让Back Buffer中的数据转到 Frame Buffer 然后交给屏幕进行显示绘制,
        同时让原先的Frame Buffer 变成 Back Buffer 让程序处理. 
 
-          这也就是贯穿整个安卓系统的双缓冲机制,实际上的帧就保存在这两个缓冲区,
+          2)这也就是贯穿整个安卓系统的双缓冲机制,实际上的帧就保存在这两个缓冲区,
        A缓冲区用来显示当前帧,B缓冲区就用来缓存或者成为处理下一帧数据,
        这样就可以做到一边处理一边显示，双缓冲主要加快栅格化速度
       
@@ -30,11 +30,11 @@
   
 - 5.从XML到显示屏幕的过程
 
-             绝大多数渲染操作都依赖两个硬件： CPU 、 GPU 。 CPU 负责 Measure 、 layout 、 Record 、 Execute 的计算操作，
+             1)绝大多数渲染操作都依赖两个硬件： CPU 、 GPU 。 CPU 负责 Measure 、 layout 、 Record 、 Execute 的计算操作，
           GPU 负责栅格化（ Rasterization ）操作。 
 
 
-             CPU会将ui组件计算成多边形(polygons)和纹理(textures),然后交给GPU进行栅格化渲染,
+             2)CPU会将ui组件计算成多边形(polygons)和纹理(textures),然后交给GPU进行栅格化渲染,
           最后GPU将数据传给屏幕进行绘制显示.当然在CPU通过OpenGL ES API处理传递给 GPU之间还需要经过
      
               我们需要在 16 ms 内处理完所有 CPU 和 GPU 的计算、绘制、渲染等操作，才能获得应用的流畅体验。
