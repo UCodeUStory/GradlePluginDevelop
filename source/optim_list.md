@@ -41,11 +41,28 @@
 - 布局层级一样的情况建议使用线性布局 LinearLayout 代替相对布局 RelativeLayout*，因为线性布局 LinearLayout 性能要更高一些；确实需要对分支进行相对布局 RelativeLayout 的时候，可以考虑更优化的网格布局 GridLayout ，它已经预处理了分支视图的关系，可以避免两次度量的问题；
 - 相对复杂的布局建议采用相对布局 RelativeLayout ，相对布局 RelativeLayout 可以简单实现线性布局 LinearLayout 嵌套才能实现的布局；
 - 不要使用绝对布局 AbsoluteLayout ；
-- 将可重复使用的组件抽取出来并用 </include> 标签进行重用。如果应用多个地方的 UI 用到某个布局，就将其写成一个布局部件，便于各个 UI 重用。官方详解 「 戳我 」
-- 使用 merge 标签减少布局的嵌套层次，官方详解 「 戳我 」；
+- 将可重复使用的组件抽取出来并用 </include> 标签进行重用。如果应用多个地方的 UI 用到某个布局，就将其写成一个布局部件，便于各个 UI 重用。
+- 使用 merge 标签减少布局的嵌套层次
 - 去掉多余的不可见背景。有多层背景颜色的布局，只留最上层的对用户可见的颜色即可，其他用户不可见的底层颜色可以去掉，减少无效的绘制操作；
 - 尽量避免使用 layout_weight 属性。使用包含 layout_weight 属性的线性布局 LinearLayout 每一个子组件都需要被测量两次，会消耗过多的系统资源。在使用 ListView 标签与 GridView 标签的时候，这个问题显的尤其重要，因为子组件会重复被创建。平分布局可以使用相对布局 RelativeLayout 里一个 0dp 的 view 做分割线来搞定，如果不行，那就……；
 - 合理的界面的布局结构应是宽而浅，而不是窄而深；
+
+
+    LinearLayout 在有weight属性时，为什么是可能会导致 2次measure ?
+    
+    分析源码发现，并不是所有的layout_weight都会导致两次measure：
+    
+    Vertical模式下，child设置了weight（height＝0，weight > 0）时将会跳过这一次Measure，之后会再一次Measure
+    
+    //Vertical模式下，child设置（height＝0，weight > 0）时将会跳过这一次Measure，之后会再一次Measure
+    if (heightMode == MeasureSpec.EXACTLY && lp.height == 0 && lp.weight > 0) {
+       // Optimization: don't bother measuring children who are going to use
+       // leftover space. These views will get measured again down below if
+       // there is any leftover space.
+       final int totalLength = mTotalLength;
+       mTotalLength = Math.max(totalLength, totalLength + lp.topMargin + lp.bottomMargin);
+       skippedMeasure = true;//跳过这一次measure
+    } 
 
 2 优化处理逻辑
 
