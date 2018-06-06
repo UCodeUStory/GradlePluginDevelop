@@ -61,7 +61,7 @@
 - ContentObserver，File，Cursor，Stream，Bitmap等资源未关闭（由于原因3）
 
 - Webview 内存泄露
-
+ 
 
         
     1.可以将 Webview 的 Activity 新起一个进程，结束的时候直接System.exit(0);退出当前进程；
