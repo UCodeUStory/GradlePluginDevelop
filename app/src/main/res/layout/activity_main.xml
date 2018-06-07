@@ -10,8 +10,13 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.wangpos.test.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+
+    <Button
+        android:id="@+id/btn_request_network"
+        android:layout_width="match_parent"
+        android:textSize="15sp"
+        android:padding="10dp"
+        android:text="测试一个网络请求，确保一定执行，如果没网就等网络状态好情况下执行"
+        android:layout_height="wrap_content" />
+
 </RelativeLayout>
