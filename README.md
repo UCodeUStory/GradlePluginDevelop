@@ -46,13 +46,16 @@
 - [apk瘦身优化](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/android_apk_optimization.md) 
 - [界面性能UI](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/ui_optimization.md) 
 - [内存泄露](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/memory_optimization.md)
-
+- [WorkManager]()
 ### 问题总结
 
  - 1.找不到依赖库，需要在repositories中添加jcenter()
  - 2.javassist找不到jar包，就是需要javassist引入jar包
  - 3.发现生成的apk没有变化，删除了build目录重新build，仍然无变化，点击Android Studio setting 清理缓存，重新启动
  - 4.项目app修改名字报错时提示找不到项目，一般根目录.idea就可以解决
+ - 5.解决Error:All flavors must now belong to a named flavor dimension.
+ 
+        flavorDimensions "versionCode"
 
 
 

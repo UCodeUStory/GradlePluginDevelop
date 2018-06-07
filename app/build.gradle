@@ -32,5 +32,10 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.0.0'
     testCompile 'junit:junit:4.12'
+    implementation "android.arch.work:work-runtime:1.0.0-alpha01"
 
+}
+
+android {
+    buildToolsVersion '26.0.2'
 }
