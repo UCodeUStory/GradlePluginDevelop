@@ -1,4 +1,4 @@
-package com.wangpos.test;
+package com.wangpos.test.work;
 
 import android.support.annotation.NonNull;
 import android.util.Log;
@@ -18,9 +18,18 @@ public class UploadWork extends Worker {
     @Override
     public WorkerResult doWork() {
 
-        Log.i("info","upload success");
+        Log.i(TAG,"模拟上传中......");
 
-        Data resultData = new Data.Builder().putString("result","--^_^--").build();
+        boolean isTest = getInputData().getBoolean("isTest",false);
+
+//        try {
+//            Thread.sleep(10000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+
+
+        Data resultData = new Data.Builder().putString("result","--^_^--"+isTest).build();
         setOutputData(resultData);
         return WorkerResult.SUCCESS;
     }
