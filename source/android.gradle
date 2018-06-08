@@ -172,12 +172,9 @@ android {
     minSdkVersion 15  //应用可以运行的最低要求,app运行所需的最低sdk版本.低于minSdkVersion的手机将无法安装.
  */
 /*
-    targetSdkVersion 26 // 兼容的SDK版本，，如何选择targetSdkVersion取决于应用程序需要实现的功能，如果你的应用程序使用API 7就可以实现的功能
-    ，可以不用考虑使用API 26，使用低版本API的其中一个好处，可以让更多的Android系统运行的效果保持一致，即兼容性更好，
-    打个比方：API 7开发的APP可能兼容98%以上的Android手机，而API 24开发的APP可能兼容仅有60%，
-    所谓的不兼容并不是无法正常运行，而是在不同Android系统的手机运行的效果差异比较大，会让用户感觉难以接受；
-    使用低版本API的其中一个不足，显示的效果比较OUT，提供的可用的接口或类比较少，本来一句代码可以完成的功能（封装的类或接口），
-    需要自己花一天琢磨写很多的代码，也就是有高版本API的其中一个原因，提供更多的或封装好的应用程序接口让开发者使用。
+    targetSdkVersion 26
+    minSdkVersion和targetSdkVersion相信非常多人都不太理解。我在网上也看了很多关于这两者差别的文章，感觉说的都非常模糊。直到我在stackOverFlow看到Android Min SDK Version vs. Target SDK Version这篇文章后，我才最终弄清楚怎样去设置minSdkVersion和targetSdkVersion。如今我将分享给大家。
+    简言之，这篇文章的目的是为了区分minSDK和targetSDK，这两者相当于一个区间。你能够用到targetSDK中最新的API和最酷的新功能，但你又不得不向下兼容到minSDK，保证这个区间内的设备都能够正常的执行你的app。换句话说，你想使用Android刚刚推出的新特性。但这对于你的app又不是必须的。你就能够将targetSDK设置为你想使用新特性的SDK版本号，minSDK设置成低版本号保证全部人都能够使用你的app。
  */
 /*
     defaultConfig 配置默认构建属性

@@ -11,6 +11,7 @@ import androidx.work.Worker;
  */
 
 public class UploadWork extends Worker {
+
     public static final String TAG = UploadWork.class.getSimpleName();
 
     @NonNull
@@ -18,8 +19,6 @@ public class UploadWork extends Worker {
     public WorkerResult doWork() {
 
         Log.i("info","upload success");
-
-
 
         Data resultData = new Data.Builder().putString("result","--^_^--").build();
         setOutputData(resultData);
