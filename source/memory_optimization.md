@@ -1,6 +1,10 @@
 ### 内存泄露
 
 
+<img width="480" height="240" src="https://github.com/UCodeUStory/GradlePlugin/blob/master/source/gc1.jpeg"/>
+
+<img width="480" height="240" src="https://github.com/UCodeUStory/GradlePlugin/blob/master/source/gc2.jpeg"/>
+
 - 内存泄漏指的是那些程序不再使用的对象无法被GC识别。
 
 

@@ -47,7 +47,9 @@
 - [apk瘦身优化](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/android_apk_optimization.md) 
 - [界面性能UI](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/ui_optimization.md) 
 - [内存泄露](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/memory_optimization.md)
-- [WorkManager]()
+- [WorkManager](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/workmanager.md)
+
+
 ### 问题总结
 
  - 1.找不到依赖库，需要在repositories中添加jcenter()
