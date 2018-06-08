@@ -1,6 +1,6 @@
 
 
-###WorkManager
+### WorkManager
 
 
 1. 简介: 就是 ”管理一些要在后台工作的任务, – 即使你的应用没启动也能保证任务能被执行”。
@@ -15,7 +15,7 @@
   其实这个想法很对. WorkManager在底层也是看你是什么版本来选到底是JobScheduler, AlamarManager来做。 
   JobScheduler是Android 5.x才有的. 而AlarmManager一直存在. 所以WorkManager在底层, 会根据你的设备情况, 选用JobScheduler, Firebase的JobDispatcher, 或是AlarmManager。
   
-####WorkManager使用
+#### WorkManager使用
 
 1. 导入jar包
 
