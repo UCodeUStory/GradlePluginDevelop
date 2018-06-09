@@ -61,7 +61,7 @@
    3. Easy to query
    4. Support for all android versions
 
-6.示例：
+6. 示例：
 
      /**
          * 模拟一个网络请求
