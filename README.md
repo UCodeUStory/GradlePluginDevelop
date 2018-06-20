@@ -59,6 +59,18 @@
  - 5.解决Error:All flavors must now belong to a named flavor dimension.
  
         flavorDimensions "versionCode"
-
+ - 6.Android Studio clean 时产生 Error:Execution failed for task ':app:mockableAndroidJar' > java.lang.NullPointer
+ 
+     解决1：这个问题由于更改主项目complieSdk版本导致的，只需要将所有子项目的版本更改相同即可；
+     解决2：也可以通过在
+           1. Go to File -> Settings -> Build, Execution, Deployment -> Compiler 
+           2. Add to “Command-line Options”: -x :app:mockableAndroidJar 
+           3. Press “OK” and try to Rebuild Project again.
+     解决3：File -> Settings -> Build, Execution, Deployment -> Build Tools -> Gradle -> Experimental
+     
+           取消 Enable All test..勾选，但是mac版本没找到这个选项
+ - 7.当我们修改    compile 'com.android.support:appcompat-v7:25.0.0'版本时，会报很多value
+ 主题找不到等错误
+     此时我们只需要修改compileSDK版本和这个V7后面版本一致即可
 
 
