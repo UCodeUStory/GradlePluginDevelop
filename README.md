@@ -1,5 +1,6 @@
 ## Gradle插件开发介绍
 
+- [英文文档](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/english.md)
 
 ####  Gradle基础详解：
 
