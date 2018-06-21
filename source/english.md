@@ -1,5 +1,6 @@
 ## Gradle plugin development introduction
 
+- [中文文档](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/chinese.md)
 
 ####  Gradle basic：
 
@@ -11,7 +12,7 @@
 - [Gradle module configuration](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/day03.gradle)
 - [Gradle plugin classification](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/day04.gradle)
 - [Gradle Android plugin content](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/android.gradle)
-- [CompileSdkVersion minSdkVersion targetSdkVersion buildToolsVersion区别](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/sdkVersionType.md)
+- [CompileSdkVersion minSdkVersion targetSdkVersion buildToolsVersion different](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/sdkVersionType.md)
 - [Gradle integrate configuration version](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/version.gradle)
 - [Gradle branch channel packaging](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/productflavor.gradle)
 - [Gradle configuration AndroidManifest](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/configManifest.gradle)
@@ -27,7 +28,7 @@
 - [AndroidStudio common problem](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/android_studio.xml)
 - [Gradle command package apk](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/assemble.md)
 - [Gradle command line passing parameters](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/assembleWithParams.md)
-- [Gradle Compiler dynamic generation java · excellent·优](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/operate_file.md)
+- [Gradle Compiler dynamic generation java excellent](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/operate_file.md)
 - [Gradle create Task](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/task.md)
 - [Gradle select different AndroidManifest.xml](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/diffManifest.md)
 - [Gradle Order of execution](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/exeRank.md)
