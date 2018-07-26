@@ -60,3 +60,5 @@ def initConfigString(key, value) {
 
 initConfigString("name", "configName")
 initConfigInt("isOpen", 4)
+
+

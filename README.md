@@ -1,82 +1,78 @@
-## Gradle plugin development introduction
+## Gradle插件开发介绍
 
-- [中文文档](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/chinese.md)
+- [英文文档](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/english.md)
 
-####  Gradle basic：
+####  Gradle基础详解：
 
-    This time must be systematically mastered. Are you ready?
+    这一次一定要系统掌握，你准备好了吗？
     
     
-- [Acquaintance Gradle and Domain Specific Languages](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/day01.gradle)
-- [Gradle version configuration](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/day02.md)
-- [Gradle module configuration](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/day03.gradle)
-- [Gradle plugin classification](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/day04.gradle)
-- [Gradle Android plugin content](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/android.gradle)
-- [CompileSdkVersion minSdkVersion targetSdkVersion buildToolsVersion different](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/sdkVersionType.md)
-- [Gradle integrate configuration version](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/version.gradle)
-- [Gradle branch channel packaging](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/productflavor.gradle)
-- [Gradle configuration AndroidManifest](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/configManifest.gradle)
-- [Gradle Configure your source path, dynamically remove classes that do not require packaging](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/sourceSet.gradle)
-- [Gradle Project Dependency Configuration](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/project_library.md)
+- [初识Gradle 和 领域专用语言](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/day01.gradle)
+- [Gradle 版本配置](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/day02.md)
+- [Gradle 模块配置](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/day03.gradle)
+- [Gradle 插件分类](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/day04.gradle)
+- [Gradle Android插件包含的内容](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/android.gradle)
+- [CompileSdkVersion minSdkVersion targetSdkVersion buildToolsVersion区别](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/sdkVersionType.md)
+- [Gradle 统一配置你的版本号](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/version.gradle)
+- [Gradle 分渠道打包](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/productflavor.gradle)
+- [Gradle 配置你的AndroidManifest](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/configManifest.gradle)
+- [Gradle 指定你的源码路径、动态去除不需要打包的类·优](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/sourceSet.gradle)
+- [Gradle 项目依赖配置](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/project_library.md)
 - [Gradle lintOption·优](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/lintOption.gradle)
-- [lint report](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/lint-results-obmDebug.html)
-- [Gradle package optimization configuration](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/optimization.gradle)
-- [Gradle gradle.properties Configure gradle version and buildTools version, and some constant version number](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/properties.gradle)
-- [Gradle use variantFilter modify the generated apk path, name](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/applicationVariant.gradle)
-- [Gradle configure java version](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/set_java_version.gradle)
-- [Gradle packagingOptions Solve duplicate packages and files](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/packageOption.gradle)
-- [AndroidStudio common problem](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/android_studio.xml)
-- [Gradle command package apk](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/assemble.md)
-- [Gradle command line passing parameters](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/assembleWithParams.md)
-- [Gradle Compiler dynamic generation java excellent](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/operate_file.md)
-- [Gradle create Task](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/task.md)
-- [Gradle select different AndroidManifest.xml](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/diffManifest.md)
-- [Gradle Order of execution](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/exeRank.md)
-- Gradle Generate test report
-- [Gradle Generate interface document](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/genJavadoc.gradle)
-- [AAR generate](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/aar.md)
-- [jar generate](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/makeJar.md)
-- [Metaprogramming](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/metaprogramming.md)
-- See all tasks commands    *./gradlew tasks --all*
+- [lint报告](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/lint-results-obmDebug.html)
+- [Gradle 打包优化配置·优](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/optimization.gradle)
+- [Gradle gradle.properties 配置gradle版本和buildTools版本，和一些不便的版本](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/properties.gradle)
+- [Gradle 使用variantFilter修改生成apk路径、名字](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/applicationVariant.gradle)
+- [Gradle 指定java版本](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/set_java_version.gradle)
+- [Gradle packagingOptions解决重复包和文件](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/packageOption.gradle)
+- [AndroidStudio常见问题](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/android_studio.xml)
+- [Gradle 命令打包apk](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/assemble.md)
+- [Gradle 命令行传递参数](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/assembleWithParams.md)
+- [Gradle 编译器动态生成java·优](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/operate_file.md)
+- [Gradle 创建Task](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/task.md)
+- [Gradle 打包选择不同的AndroidManifest.xml](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/diffManifest.md)
+- [Gradle 执行顺序](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/exeRank.md)
+- Gradle 生成测试报告
+- [Gradle 生成接口文档](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/genJavadoc.gradle)
+- [AAR 生成](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/aar.md)
+- [jar 生成](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/makeJar.md)
+- [元编程](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/metaprogramming.md)
+- 查看所有tasks命令    *./gradlew tasks --all*
 
   
-#### Gradle Advanced plug-in development
- - [Plugin development steps](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/plugin_develop.md)
- - [Gradle Transform Listening files compile end](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/gradle_tranform.md)
+#### Gradle高级插件开发
+ - [插件开发详细步骤](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/plugin_develop.md)
+ - [Gradle Transform监听文件编译结束](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/gradle_tranform.md)
 
-#### Android Performance optimization
-- [apk Slimming optimization](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/android_apk_optimization.md) 
-- [Interface performance UI](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/ui_optimization.md) 
-- [Memory leak](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/memory_optimization.md)
+#### Android性能优化
+- [apk瘦身优化](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/android_apk_optimization.md) 
+- [界面性能UI](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/ui_optimization.md) 
+- [内存泄露](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/memory_optimization.md)
 - [WorkManager](https://github.com/UCodeUStory/GradlePlugin/blob/master/source/workmanager.md)
 
 
-### Conclusion of issue
+### 问题总结
 
-  - 1. Cannot find dependent libraries, need to add jcenter() in repositories
-  - 2. javassist can not find the jar package, it is necessary to javassist import jar package
-  - 3. Found that the generated apk did not change, delete the build directory to rebuild, still no change, click Android Studio setting to clear the cache, restart
-  - 4. The project app changes the name of the error message is not found when the project, the general root directory.idea can be resolved
-  - 5. Resolve Error: All flavors must now belong to a named flavor dimension.
+ - 1.找不到依赖库，需要在repositories中添加jcenter()
+ - 2.javassist找不到jar包，就是需要javassist引入jar包
+ - 3.发现生成的apk没有变化，删除了build目录重新build，仍然无变化，点击Android Studio setting 清理缓存，重新启动
+ - 4.项目app修改名字报错时提示找不到项目，一般根目录.idea就可以解决
+ - 5.解决Error:All flavors must now belong to a named flavor dimension.
  
         flavorDimensions "versionCode"
- - 6.Android Studio clean cause Error:Execution failed for task ':app:mockableAndroidJar' > java.lang.NullPointer
+ - 6.Android Studio clean 时产生 Error:Execution failed for task ':app:mockableAndroidJar' > java.lang.NullPointer
  
-          Solution 1. This problem is caused by changing the version of the main project complieSdk. It is only necessary to change the version of all subprojects to be the same;
-    
-          Solution 2. You can also pass
-    
-                - 1. Go to File -> Settings -> Build, Execution, Deployment -> Compiler
-    
-                - 2. Add to "Command-line Options": -x :app:mockableAndroidJar
-    
-                - 3. Press "OK" and try to Rebuild Project again.
-               
-    
-          Solution 3. File -> Settings -> Build, Execution, Deployment -> Build Tools -> Gradle -> Experimental
-                Cancel Enable All test.. Checked, but mac version did not find this option
-               
-          Solution 4. Add in the root directory
+     解决1. 这个问题由于更改主项目complieSdk版本导致的，只需要将所有子项目的版本更改相同即可；
+     
+     解决2. 也可以通过在
+           1. Go to File -> Settings -> Build, Execution, Deployment -> Compiler 
+           2. Add to “Command-line Options”: -x :app:mockableAndroidJar 
+           3. Press “OK” and try to Rebuild Project again.
+           
+     解决3.File -> Settings -> Build, Execution, Deployment -> Build Tools -> Gradle -> Experimental
+           取消 Enable All test..勾选，但是mac版本没找到这个选项
+           
+     解决4. 在根目录添加
            
                gradle.taskGraph.whenReady {
                        tasks.each { task ->
@@ -85,10 +81,10 @@
                            }
                        }
                }
-- 7. When we modify the compile 'com.android.support:appcompat-v7:25.0.0' version, it will report a lot of value
-  The topic could not be found error
-      At this point we only need to modify the compile SDK version and this version of V7 to be the same
+ - 7.当我们修改    compile 'com.android.support:appcompat-v7:25.0.0'版本时，会报很多value
+ 主题找不到等错误
+     此时我们只需要修改compileSDK版本和这个V7后面版本一致即可
 
 
-#### friendship link
+#### 友情链接
 [fly803/BaseProject](https://github.com/fly803/BaseProject) 
