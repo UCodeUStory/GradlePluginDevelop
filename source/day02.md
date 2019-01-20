@@ -16,6 +16,7 @@ Gradle 目录下  - wrapper  - gradle-wrapper.properties
 
 ### Android 项目构建还需要引入Gradle插件，下面是配置插件版本（默认创新新项目插件版本就是当前AndroidStudio版本）
 
+```gradle
 buildscript {
     repositories {
         jcenter()
@@ -27,7 +28,7 @@ buildscript {
         // in the individual module build.gradle files
     }
 }
-
+```
 
 ### Plugin for Gradle版本 和 Gradle版本 之间的版本对应关系 
 
